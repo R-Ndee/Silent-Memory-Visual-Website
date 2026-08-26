@@ -136,6 +136,13 @@
       transform: scale(1.03);
     }
 
+    .work-placeholder-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      margin-top: 0.5rem;
+      line-height: 1.25;
+    }
+
     .work-info {
       position: absolute;
       bottom: 0;
@@ -273,6 +280,7 @@
     @media (max-width: 992px) {
       .works-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
       }
       .work-item-1, .work-item-2, .work-item-3, .work-item-4 {
         grid-column: span 1;
@@ -291,6 +299,20 @@
       .about-preview-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .work-item-1, .work-item-2, .work-item-3, .work-item-4 {
+        grid-column: span 1;
+        aspect-ratio: 16/10;
+      }
+      .work-img-placeholder {
+        padding: 1.25rem 1rem;
       }
     }
   </style>
@@ -372,7 +394,7 @@
         <a href="gallery.html?category=graduation" class="work-item work-item-1">
           <div class="work-img-placeholder">
             <span class="work-cat">Graduation</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Pre-Graduation Session</span>
+            <span class="work-placeholder-title">Pre-Graduation Session</span>
           </div>
           <div class="work-info">
             <div class="work-cat">GRADUATION · 2026</div>
@@ -384,7 +406,7 @@
         <a href="gallery.html?category=love-package" class="work-item work-item-2">
           <div class="work-img-placeholder">
             <span class="work-cat">Love Package</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Wedding Ceremony</span>
+            <span class="work-placeholder-title">Wedding Ceremony</span>
           </div>
           <div class="work-info">
             <div class="work-cat">LOVE PACKAGE · 2026</div>
@@ -396,7 +418,7 @@
         <a href="gallery.html?category=private-photoshoot" class="work-item work-item-3">
           <div class="work-img-placeholder">
             <span class="work-cat">Private Photoshoot</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Model Portrait</span>
+            <span class="work-placeholder-title">Model Portrait</span>
           </div>
           <div class="work-info">
             <div class="work-cat">PRIVATE PHOTOSHOOT · 2026</div>
@@ -408,7 +430,7 @@
         <a href="gallery.html?category=event-documentation" class="work-item work-item-4">
           <div class="work-img-placeholder">
             <span class="work-cat">Event Documentation</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Corporate Gala</span>
+            <span class="work-placeholder-title">Corporate Gala</span>
           </div>
           <div class="work-info">
             <div class="work-cat">EVENT DOCUMENTATION · 2026</div>
