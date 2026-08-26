@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Booking | Silent Memory Photography Manado</title>
+  <meta name="description" content="Form reservasi jadwal dan konsultasi fotografi/videografi Silent Memory Photography Manado. Pilih jalur form atau chat WhatsApp langsung.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header class="site-header scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="contact-brand-logo">
+        <div>
+          <span class="brand-logo-text">Silent Memory</span>
+          <span class="brand-logo-sub">Photography · Manado</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="gallery.html" class="nav-link" id="contact-nav-work">Work</a>
+        <a href="pricelist.html" class="nav-link" id="contact-nav-pricelist">Pricelist</a>
+        <a href="about.html" class="nav-link" id="contact-nav-about">About</a>
+        <a href="contact.html" class="nav-link active" id="contact-nav-contact">Contact</a>
+      </nav>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" id="contact-mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="gallery.html" class="mobile-nav-link">Work</a>
+      <a href="pricelist.html" class="mobile-nav-link">Pricelist</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="contact.html" class="mobile-nav-link active">Contact</a>
+    </nav>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- CONTACT HEADER -->
+    <section class="contact-header-section">
+      <div class="container fade-in-section">
+        <span class="sub-title">Reservasi & Konsultasi</span>
+        <h1 class="heading-lg" style="margin-top: 0.5rem;">Book Your Session</h1>
+        <p class="body-muted" style="max-width: 600px; margin: 0.75rem auto 0 auto;">Pilih jalur yang nyaman untukmu: isi form reservasi di bawah atau langsung chat dengan tim kami via WhatsApp.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT DUAL-CHANNEL LAYOUT -->
+    <section class="container">
+      <div class="contact-layout-grid fade-in-section">
+        
+        <!-- PATH A: DYNAMIC FORM CARD -->
+        <div class="contact-form-card">
+          
+          <div class="submit-status-banner" id="submit-status-banner"></div>
+
+          <!-- SUCCESS CARD (Hidden by default) -->
+          <div class="submit-success-card" id="submit-success-card">
+            <span class="sub-title" style="color: var(--accent-gold); display: block; margin-bottom: 0.5rem;">Terima Kasih!</span>
+            <h3 class="font-serif" style="font-size: 2rem; margin-bottom: 1rem;">Form Reservasi Berhasil Diterima</h3>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem auto; line-height: 1.6;">Data reservasi kamu telah tersusun rapi. Halaman WhatsApp sedang dibuka secara otomatis untuk terhubung langsung dengan tim kami.</p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">
+              (Jika WhatsApp tidak terbuka otomatis, <a href="#" target="_blank" rel="noopener" id="btn-success-wa" style="color: var(--accent-gold); text-decoration: underline; font-weight: 500;">klik di sini untuk membuka WhatsApp</a>)
+            </p>
+          </div>
+
+          <!-- BOOKING FORM -->
+          <form id="booking-form" novalidate>
+            <h2 class="font-serif" style="font-size: 1.75rem; margin-bottom: 1.5rem;">Jalur A — Form Reservasi</h2>
+
+            <!-- Base Required Field 1: Name -->
+            <div class="form-group">
+              <label class="form-label" for="field-name">Nama Lengkap <span class="required-star">*</span></label>
+              <input type="text" id="field-name" name="name" class="form-input" placeholder="Masukkan nama lengkapmu">
+              <span class="form-error-msg" id="error-name">Nama lengkap wajib diisi.</span>
+            </div>
+
+            <!-- Base Required Field 2: WhatsApp -->
+            <div class="form-group">
+              <label class="form-label" for="field-wa">Nomor WhatsApp <span class="required-star">*</span></label>
+              <input type="tel" id="field-wa" name="wa" class="form-input" placeholder="Contoh: 085696293686">
+              <span class="form-error-msg" id="error-wa">Nomor WhatsApp aktif wajib diisi.</span>
+            </div>
+
+            <!-- Base Required Field 3: Category Select -->
+            <div class="form-group">
+              <label class="form-label" for="field-category">Pilihan Kategori Layanan <span class="required-star">*</span></label>
+              <select id="field-category" name="category" class="form-select">
+                <option value="" disabled selected>-- Pilih Kategori --</option>
+                <option value="graduation">Graduation</option>
+                <option value="private-photoshoot">Private Photoshoot</option>
+                <option value="love-package">Love Package</option>
+                <option value="event-documentation">Event Documentation</option>
+                <option value="commercial">Commercial</option>
+              </select>
+              <span class="form-error-msg" id="error-category">Silakan pilih kategori layanan.</span>
+            </div>
+
+            <!-- DYNAMIC FIELD GROUP 1: GRADUATION & PRIVATE PHOTOSHOOT -->
+            <div class="dynamic-field-group" id="group-grad-priv">
+              <div class="form-group">
+                <label class="form-label" for="field-grad-date">Rencana Tanggal Sesi <span class="required-star">*</span></label>
+                <input type="date" id="field-grad-date" name="grad_date" class="form-input">
+                <span class="form-error-msg" id="error-grad-date">Tanggal sesi wajib diisi.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="field-grad-loc">Lokasi Sesi Photoshoot <span class="required-star">*</span></label>
+                <input type="text" id="field-grad-loc" name="grad_loc" class="form-input" placeholder="Contoh: Kampus UNSRAT / Studio / In-door venue">
+                <span class="form-error-msg" id="error-grad-loc">Lokasi sesi wajib diisi.</span>
+              </div>
+            </div>
+
+            <!-- DYNAMIC FIELD GROUP 2: LOVE PACKAGE -->
+            <div class="dynamic-field-group" id="group-love">
+              <div class="form-group">
+                <label class="form-label" for="field-love-subcat">Sub-Kategori Love Package <span class="required-star">*</span></label>
+                <select id="field-love-subcat" name="love_subcat" class="form-select">
+                  <option value="" disabled selected>-- Pilih Sub-Kategori --</option>
+                  <option value="Prewedding">Prewedding</option>
+                  <option value="Engagement">Engagement</option>
+                  <option value="Wedding">Wedding</option>
+                </select>
+                <span class="form-error-msg" id="error-love-subcat">Silakan pilih sub-kategori Love Package.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="field-love-date">Tanggal Acara / Momen <span class="required-star">*</span></label>
+                <input type="date" id="field-love-date" name="love_date" class="form-input">
+                <span class="form-error-msg" id="error-love-date">Tanggal acara wajib diisi.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="field-love-loc">Lokasi Acara / Venue <span class="required-star">*</span></label>
+                <input type="text" id="field-love-loc" name="love_loc" class="form-input" placeholder="Contoh: Hotel / Gereja / Outdoor Venue di Manado">
+                <span class="form-error-msg" id="error-love-loc">Lokasi acara wajib diisi.</span>
+              </div>
+            </div>
+
+            <!-- DYNAMIC FIELD GROUP 3: EVENT DOCUMENTATION & COMMERCIAL -->
+            <div class="dynamic-field-group" id="group-event-comm">
+              <div class="form-group">
+                <label class="form-label" for="field-event-date">Tanggal Acara / Proyek <span class="required-star">*</span></label>
+                <input type="date" id="field-event-date" name="event_date" class="form-input">
+                <span class="form-error-msg" id="error-event-date">Tanggal acara/proyek wajib diisi.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="field-event-loc">Lokasi Acara / Lokasi Proyek <span class="required-star">*</span></label>
+                <input type="text" id="field-event-loc" name="event_loc" class="form-input" placeholder="Masukkan lokasi acara atau gedung">
+                <span class="form-error-msg" id="error-event-loc">Lokasi acara wajib diisi.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="field-event-desc">Deskripsi Kebutuhan Proyek / Event <span class="required-star">*</span></label>
+                <textarea id="field-event-desc" name="event_desc" rows="4" class="form-textarea" placeholder="Jelaskan jenis event, estimasi durasi acara, serta gambaran output yang dibutuhkan"></textarea>
+                <span class="form-error-msg" id="error-event-desc">Deskripsi kebutuhan wajib diisi.</span>
+              </div>
+            </div>
+
+            <!-- Optional Field: Additional Notes -->
+            <div class="form-group">
+              <label class="form-label" for="field-notes">Catatan Tambahan (Opsional)</label>
+              <textarea id="field-notes" name="notes" rows="3" class="form-textarea" placeholder="Paket yang dilirik, konsep khusus, atau pertanyaan lain"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="btn-submit-form" style="width: 100%; margin-top: 1rem;">Kirim Form Reservasi</button>
+          </form>
+
+        </div>
+
+        <!-- PATH B: DIRECT WHATSAPP SIDEBAR -->
+        <div class="contact-sidebar">
+          
+          <div class="wa-direct-card">
+            <span class="sub-title" style="color: #D4B996; margin-bottom: 0.5rem; display: block;">Jalur B — Fast Response</span>
+            <h3 class="font-serif">Chat WhatsApp Direct</h3>
+            <p>Ingin respon lebih cepat atau konsultasi santai? Kamu bisa langsung terhubung dengan fotografer kami secara langsung.</p>
+
+            <div class="wa-contact-list">
+              <a href="https://wa.me/6285696293686?text=Halo%20Ndee,%20saya%20ingin%20tanya%20jadwal%20dan%20sesi%20foto%20Silent%20Memory" target="_blank" rel="noopener" class="wa-contact-item" id="sidebar-wa-ndee">
+                <div>
+                  <strong style="display: block; font-family: var(--font-heading); font-size: 1.1rem; color: #FFFFFF;">Ndee</strong>
+                  <span style="font-size: 0.8rem; color: rgba(250,250,247,0.6);">0856-9629-3686</span>
+                </div>
+                <span style="color: var(--accent-gold); font-size: 1.25rem;">→</span>
+              </a>
+
+              <a href="https://wa.me/6289636266723?text=Halo%20Icha,%20saya%20ingin%20tanya%20jadwal%20dan%20sesi%20foto%20Silent%20Memory" target="_blank" rel="noopener" class="wa-contact-item" id="sidebar-wa-icha">
+                <div>
+                  <strong style="display: block; font-family: var(--font-heading); font-size: 1.1rem; color: #FFFFFF;">Icha</strong>
+                  <span style="font-size: 0.8rem; color: rgba(250,250,247,0.6);">0896-3626-6723</span>
+                </div>
+                <span style="color: var(--accent-gold); font-size: 1.25rem;">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div style="background-color: #F5F3EF; border: 1px solid var(--border-color); padding: 2rem; border-radius: 2px;">
+            <h4 class="font-serif" style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Lokasi & Operasional</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Berbasis di Manado, Sulawesi Utara.<br>Melayani dokumentasi area Manado, Minahasa, dan sekitarnya (luar kota tersedia dengan biaya penyesuaian).</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-logo-text">Silent Memory</span>
+          <span class="brand-logo-sub">Photography · Manado</span>
+          <p>Editorial photography & videography services based in Manado, North Sulawesi. Preserving unspoken emotions into timeless memories.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Work</a></li>
+            <li><a href="pricelist.html">Pricelist</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Categories</h4>
+          <ul class="footer-menu">
+            <li><a href="gallery.html?category=graduation">Graduation</a></li>
+            <li><a href="gallery.html?category=private-photoshoot">Private Photoshoot</a></li>
+            <li><a href="gallery.html?category=love-package">Love Package</a></li>
+            <li><a href="gallery.html?category=event-documentation">Event Documentation</a></li>
+            <li><a href="gallery.html?category=commercial">Commercial</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Direct Contact</h4>
+          <ul class="footer-menu">
+            <li><a href="https://wa.me/6285696293686" target="_blank" rel="noopener">Ndee: +62 856-9629-3686</a></li>
+            <li><a href="https://wa.me/6289636266723" target="_blank" rel="noopener">Icha: +62 896-3626-6723</a></li>
+            <li style="margin-top: 0.5rem; color: rgba(250,250,247,0.5); font-size: 0.85rem;">Manado, Sulawesi Utara</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Silent Memory Photography. All rights reserved.</span>
+        <span>Crafted with intention.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

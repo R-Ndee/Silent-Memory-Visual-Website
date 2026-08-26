@@ -1,0 +1,420 @@
+/* ==========================================================================
+   SILENT MEMORY PHOTOGRAPHY - GALLERY STYLES
+   Masonry layout, 2-level category filter, subtle category tint background,
+   stagger entrance animations, custom cursor follower, and lightbox modal.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GALLERY PAGE HEADER & FILTER BARS
+   -------------------------------------------------------------------------- */
+.gallery-header-section {
+  padding-top: calc(var(--navbar-height) + 3.5rem);
+  padding-bottom: 2rem;
+  background-color: var(--bg-primary);
+}
+
+.gallery-title-area {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.filter-bar-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn-main {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.filter-btn-main::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-gold); /* ALWAYS --accent-gold for active indicator */
+  transition: width var(--transition-fast);
+}
+
+.filter-btn-main:hover {
+  color: var(--text-primary);
+}
+
+.filter-btn-main.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.filter-btn-main.active::after {
+  width: 100%;
+}
+
+/* Level 2 Sub-category Filter Bar */
+.filter-bar-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  min-height: 40px;
+  transition: opacity var(--transition-fast);
+}
+
+.filter-btn-sub {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn-sub:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.filter-btn-sub.active {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  border-color: var(--bg-dark);
+}
+
+/* Category Contextual Dual-CTA Bar */
+.gallery-context-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-color);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  border-radius: 4px;
+}
+
+.gallery-context-cta.visible {
+  display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   2. MASONRY GRID SYSTEM & CATEGORY TINT SECTION
+   -------------------------------------------------------------------------- */
+.gallery-grid-section {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  transition: background-color var(--transition-medium);
+}
+
+/* Mood tints applied strictly to gallery section background */
+.gallery-grid-section[data-active-category="graduation"] {
+  background-color: var(--tint-graduation);
+}
+.gallery-grid-section[data-active-category="private-photoshoot"] {
+  background-color: var(--tint-private-photoshoot);
+}
+.gallery-grid-section[data-active-category="love-package"] {
+  background-color: var(--tint-love-package);
+}
+.gallery-grid-section[data-active-category="event-documentation"] {
+  background-color: var(--tint-event-documentation);
+}
+.gallery-grid-section[data-active-category="commercial"] {
+  background-color: var(--tint-commercial);
+}
+
+/* Masonry Columns Layout */
+.gallery-masonry {
+  column-count: 3;
+  column-gap: 1.5rem;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #F2EDE6;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image styling - strictly NO fixed height crop */
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Placeholder box styling for un-exported fallback assets */
+.gallery-placeholder-box {
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background-color: #EAE3D8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: background-color var(--transition-fast);
+}
+
+.gallery-placeholder-box.portrait {
+  min-height: 380px;
+}
+
+.gallery-placeholder-box.landscape {
+  min-height: 250px;
+}
+
+.gallery-item:hover .gallery-placeholder-box {
+  background-color: #E2DACD;
+}
+
+.gallery-placeholder-cat {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+}
+
+.gallery-placeholder-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.gallery-item-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.25rem;
+  background: linear-gradient(0deg, rgba(26,26,24,0.85) 0%, transparent 100%);
+  color: var(--text-light);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.gallery-item:hover .gallery-item-info {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. CURSOR FOLLOWER LABEL ("Lihat")
+   -------------------------------------------------------------------------- */
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+  color: var(--text-light);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.cursor-follower.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   4. LIGHTBOX MODAL
+   -------------------------------------------------------------------------- */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-medium);
+}
+
+.lightbox-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: #FFFFFF;
+  font-size: 2rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10002;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.lightbox-close-btn:hover {
+  opacity: 1;
+}
+
+.lightbox-content-wrap {
+  position: relative;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-placeholder-box {
+  width: 80vw;
+  max-width: 800px;
+  height: 60vh;
+  background-color: #1A1A18;
+  border: 1px solid #333330;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #FFFFFF;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  z-index: 10001;
+}
+
+.lightbox-nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev { left: 2rem; }
+.lightbox-next { right: 2rem; }
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 2rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS (GALLERY)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .gallery-masonry {
+    column-count: 2;
+  }
+  .cursor-follower {
+    display: none !important; /* Disable cursor follower on touch devices */
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-masonry {
+    column-count: 1;
+  }
+
+  .filter-bar-main, .filter-bar-sub {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-bar-main::-webkit-scrollbar, .filter-bar-sub::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-btn-main, .filter-btn-sub {
+    flex-shrink: 0;
+  }
+  .lightbox-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+}

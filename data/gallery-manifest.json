@@ -1,0 +1,178 @@
+[
+  {
+    "id": "grad-001",
+    "src": "graduation/pre-grad/grad-001",
+    "category": "graduation",
+    "subcategory": "pre-grad",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true,
+    "title": "Sam Ratulangi University Pre-Graduation Session"
+  },
+  {
+    "id": "grad-002",
+    "src": "graduation/post-grad/grad-002",
+    "category": "graduation",
+    "subcategory": "post-grad",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true,
+    "title": "Post-Graduation Commencement Joy"
+  },
+  {
+    "id": "grad-003",
+    "src": "graduation/pre-grad/grad-003",
+    "category": "graduation",
+    "subcategory": "pre-grad",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2025,
+    "featured": true,
+    "title": "Faculty of Engineering Pre-Grad"
+  },
+  {
+    "id": "priv-001",
+    "src": "private-photoshoot/birthday/priv-001",
+    "category": "private-photoshoot",
+    "subcategory": "birthday",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true,
+    "title": "21st Birthday Warm Editorial Session"
+  },
+  {
+    "id": "priv-002",
+    "src": "private-photoshoot/model/priv-002",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true,
+    "title": "Natural Light Model Portfolio"
+  },
+  {
+    "id": "priv-003",
+    "src": "private-photoshoot/pageant/priv-003",
+    "category": "private-photoshoot",
+    "subcategory": "pageant",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2025,
+    "featured": true,
+    "title": "Miss Manado Pageant Portrait"
+  },
+  {
+    "id": "priv-004",
+    "src": "private-photoshoot/others/priv-004",
+    "category": "private-photoshoot",
+    "subcategory": "others",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false,
+    "title": "Personal Branding Photoshoot"
+  },
+  {
+    "id": "love-001",
+    "src": "love-package/wedding/love-001",
+    "category": "love-package",
+    "subcategory": "wedding",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true,
+    "title": "Seaside Wedding Ceremony in Manado"
+  },
+  {
+    "id": "love-002",
+    "src": "love-package/prewedding/love-002",
+    "category": "love-package",
+    "subcategory": "prewedding",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true,
+    "title": "Highland Prewedding Sunset"
+  },
+  {
+    "id": "love-003",
+    "src": "love-package/engagement/love-003",
+    "category": "love-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2025,
+    "featured": true,
+    "title": "Intimate Family Engagement"
+  },
+  {
+    "id": "event-001",
+    "src": "event-documentation/church-event/event-001",
+    "category": "event-documentation",
+    "subcategory": "church-event",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true,
+    "title": "Annual Church Fellowship Gathering"
+  },
+  {
+    "id": "event-002",
+    "src": "event-documentation/office/event-002",
+    "category": "event-documentation",
+    "subcategory": "office",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true,
+    "title": "Corporate Gala & Award Night"
+  },
+  {
+    "id": "event-003",
+    "src": "event-documentation/birthday/event-003",
+    "category": "event-documentation",
+    "subcategory": "birthday",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2025,
+    "featured": true,
+    "title": "Grand Birthday Celebration"
+  },
+  {
+    "id": "event-004",
+    "src": "event-documentation/pageant/event-004",
+    "category": "event-documentation",
+    "subcategory": "pageant",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false,
+    "title": "Regional Pageant Grand Final"
+  },
+  {
+    "id": "comm-001",
+    "src": "commercial/comm-001",
+    "category": "commercial",
+    "subcategory": "",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true,
+    "title": "Boutique Resort Architecture & Brand Shoot"
+  },
+  {
+    "id": "comm-002",
+    "src": "commercial/comm-002",
+    "category": "commercial",
+    "subcategory": "",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true,
+    "title": "Artisanal Coffee Product Photography"
+  }
+]

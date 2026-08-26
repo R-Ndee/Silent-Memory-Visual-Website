@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Works | Silent Memory Photography Manado</title>
+  <meta name="description" content="Kumpulan karya dan galeri foto portofolio Silent Memory Photography Manado: Graduation, Private Photoshoot, Love Package, Event Documentation, & Commercial.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header class="site-header scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="gallery-brand-logo">
+        <div>
+          <span class="brand-logo-text">Silent Memory</span>
+          <span class="brand-logo-sub">Photography · Manado</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="gallery.html" class="nav-link active" id="gallery-nav-work">Work</a>
+        <a href="pricelist.html" class="nav-link" id="gallery-nav-pricelist">Pricelist</a>
+        <a href="about.html" class="nav-link" id="gallery-nav-about">About</a>
+        <a href="contact.html" class="nav-link" id="gallery-nav-contact">Contact</a>
+      </nav>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" id="gallery-mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="gallery.html" class="mobile-nav-link active">Work</a>
+      <a href="pricelist.html" class="mobile-nav-link">Pricelist</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </nav>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- GALLERY HEADER & FILTERS -->
+    <section class="gallery-header-section">
+      <div class="container">
+        
+        <div class="gallery-title-area fade-in-section">
+          <span class="sub-title">Visual Archive</span>
+          <h1 class="heading-lg" style="margin-top: 0.5rem;">Selected Portfolio</h1>
+        </div>
+
+        <!-- Level 1 Main Filter Bar -->
+        <div class="filter-bar-main" id="main-filter-bar">
+          <button class="filter-btn-main active" data-category="all" id="filter-cat-all">All</button>
+          <button class="filter-btn-main" data-category="graduation" id="filter-cat-grad">Graduation</button>
+          <button class="filter-btn-main" data-category="private-photoshoot" id="filter-cat-priv">Private Photoshoot</button>
+          <button class="filter-btn-main" data-category="love-package" id="filter-cat-love">Love Package</button>
+          <button class="filter-btn-main" data-category="event-documentation" id="filter-cat-event">Event Documentation</button>
+          <button class="filter-btn-main" data-category="commercial" id="filter-cat-comm">Commercial</button>
+        </div>
+
+        <!-- Level 2 Sub-category Filter Bar (Dynamic) -->
+        <div class="filter-bar-sub" id="sub-filter-bar" style="display: none;">
+          <!-- Dynamically populated by gallery.js -->
+        </div>
+
+        <!-- Contextual Dual-CTA Bar -->
+        <div class="gallery-context-cta" id="gallery-context-cta">
+          <!-- Dynamically populated by gallery.js when a specific main category is selected -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MASONRY GRID SECTION WITH CATEGORY MOOD TINT -->
+    <section class="gallery-grid-section" id="gallery-grid-section" data-active-category="all">
+      <div class="container">
+        <div class="gallery-masonry" id="gallery-masonry">
+          <!-- Dynamically populated by gallery.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CURSOR FOLLOWER LABEL ("Lihat") -->
+  <div class="cursor-follower" id="cursor-follower">
+    Lihat
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-label="Fullscreen photo viewer">
+    <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close photo viewer">&times;</button>
+    <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="lightbox-nav-btn lightbox-next" id="lightbox-next" aria-label="Next photo">&#8250;</button>
+    
+    <div class="lightbox-content-wrap">
+      <div class="lightbox-placeholder-box" id="lightbox-placeholder"></div>
+      <img src="" alt="" class="lightbox-img" id="lightbox-img" style="display: none;">
+    </div>
+
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-logo-text">Silent Memory</span>
+          <span class="brand-logo-sub">Photography · Manado</span>
+          <p>Editorial photography & videography services based in Manado, North Sulawesi. Preserving unspoken emotions into timeless memories.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Work</a></li>
+            <li><a href="pricelist.html">Pricelist</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Categories</h4>
+          <ul class="footer-menu">
+            <li><a href="gallery.html?category=graduation">Graduation</a></li>
+            <li><a href="gallery.html?category=private-photoshoot">Private Photoshoot</a></li>
+            <li><a href="gallery.html?category=love-package">Love Package</a></li>
+            <li><a href="gallery.html?category=event-documentation">Event Documentation</a></li>
+            <li><a href="gallery.html?category=commercial">Commercial</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Direct Contact</h4>
+          <ul class="footer-menu">
+            <li><a href="https://wa.me/6285696293686" target="_blank" rel="noopener">Ndee: +62 856-9629-3686</a></li>
+            <li><a href="https://wa.me/6289636266723" target="_blank" rel="noopener">Icha: +62 896-3626-6723</a></li>
+            <li style="margin-top: 0.5rem; color: rgba(250,250,247,0.5); font-size: 0.85rem;">Manado, Sulawesi Utara</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Silent Memory Photography. All rights reserved.</span>
+        <span>Crafted with intention.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

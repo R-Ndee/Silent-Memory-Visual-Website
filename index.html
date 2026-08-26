@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silent Memory Photography | Editorial Photography & Videography Manado</title>
+  <meta name="description" content="Silent Memory Photography - Jasa fotografi dan videografi profesional di Manado. Khusus Graduation, Private Photoshoot, Love Package, Event Documentation, dan Commercial.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Homepage Specific Inline Styles */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: calc(var(--navbar-height) + 4rem);
+      padding-bottom: clamp(4rem, 8vw, 8rem);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.65;
+      filter: brightness(0.9);
+      background-color: #2a2825; /* Fallback */
+    }
+
+    .hero-scrim {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(26, 26, 24, 0.4) 0%, rgba(26, 26, 24, 0.2) 40%, rgba(26, 26, 24, 0.85) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: #E8D3B9;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      color: rgba(250, 250, 247, 0.85);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      right: clamp(1.5rem, 4vw, 4rem);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 247, 0.6);
+    }
+
+    .scroll-indicator::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background-color: rgba(250, 250, 247, 0.4);
+    }
+
+    /* Selected Works Preview */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .work-item {
+      position: relative;
+      overflow: hidden;
+      background-color: #F2EDE6;
+    }
+
+    .work-item-1 { grid-column: span 7; aspect-ratio: 4/3; }
+    .work-item-2 { grid-column: span 5; aspect-ratio: 3/4; }
+    .work-item-3 { grid-column: span 4; aspect-ratio: 3/4; }
+    .work-item-4 { grid-column: span 8; aspect-ratio: 16/9; }
+
+    .work-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #EAE3D8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform var(--transition-medium);
+    }
+
+    .work-item:hover .work-img-placeholder {
+      transform: scale(1.03);
+    }
+
+    .work-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background: linear-gradient(0deg, rgba(26,26,24,0.8) 0%, transparent 100%);
+      color: var(--text-light);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .work-item:hover .work-info {
+      opacity: 1;
+    }
+
+    .work-cat {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    .work-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      margin-top: 0.25rem;
+    }
+
+    /* What We Do Section */
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      align-items: center;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color var(--transition-fast);
+    }
+
+    .service-row:hover {
+      background-color: rgba(139, 111, 71, 0.03);
+    }
+
+    .service-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--text-primary);
+      transition: color var(--transition-fast);
+    }
+
+    .service-title-wrap:hover .service-title {
+      color: var(--accent-gold);
+    }
+
+    .service-subcats {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .service-preview-img {
+      width: 140px;
+      height: 90px;
+      object-fit: cover;
+      background-color: #E6DFD5;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .service-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.5rem;
+    }
+
+    .btn-harga {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--accent-gold);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-harga:hover {
+      background-color: var(--accent-gold);
+      color: var(--text-light);
+    }
+
+    /* About Section Preview */
+    .about-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img-box {
+      aspect-ratio: 4/5;
+      background-color: #E8E2D7;
+      position: relative;
+    }
+
+    /* Booking CTA Section */
+    .booking-cta-section {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: clamp(5rem, 10vw, 9rem) 2rem;
+    }
+
+    .booking-cta-title {
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      max-width: 800px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    @media (max-width: 992px) {
+      .works-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .work-item-1, .work-item-2, .work-item-3, .work-item-4 {
+        grid-column: span 1;
+        aspect-ratio: 4/3;
+      }
+      .service-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .service-preview-img {
+        display: none;
+      }
+      .service-actions {
+        justify-content: flex-start;
+      }
+      .about-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header class="site-header hero-transparent">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="header-brand-logo">
+        <div>
+          <span class="brand-logo-text">Silent Memory</span>
+          <span class="brand-logo-sub">Photography · Manado</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="gallery.html" class="nav-link" id="nav-work">Work</a>
+        <a href="pricelist.html" class="nav-link" id="nav-pricelist">Pricelist</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+        <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" id="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="gallery.html" class="mobile-nav-link">Work</a>
+      <a href="pricelist.html" class="mobile-nav-link">Pricelist</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </nav>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-scrim"></div>
+      <!-- Fallback visual block replacing raw un-exported hero asset -->
+      <div class="hero-bg" style="background: radial-gradient(circle at 50% 50%, #3a3630 0%, #1a1a18 100%);"></div>
+
+      <div class="container hero-content fade-in-section">
+        <span class="sub-title" style="color: #D4B996; margin-bottom: 1rem; display: block;">Visual Storytellers in Manado</span>
+        <h1 class="hero-title">The photography is the product.<br><em>The interface is the frame.</em></h1>
+        <p class="hero-sub">Dokumentasi fotografi & videography editorial dengan estetika hangat, jujur, dan abadi untuk setiap momen penting kehidupanmu.</p>
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
+          <a href="gallery.html" class="btn btn-primary" id="hero-cta-gallery">Lihat Portofolio</a>
+          <a href="contact.html" class="btn btn-outline" style="color: var(--text-light); border-color: rgba(250,250,247,0.3);" id="hero-cta-contact">Reservasi Sesi</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        Scroll
+      </div>
+    </section>
+
+    <!-- SELECTED WORKS SECTION -->
+    <section class="section-padding container">
+      <div class="fade-in-section" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <span class="sub-title">Curated Selection</span>
+          <h2 class="heading-lg" style="margin-top: 0.5rem;">Selected Works</h2>
+        </div>
+        <a href="gallery.html" class="btn-link" id="btn-see-all-works">Lihat Semua Karya</a>
+      </div>
+
+      <div class="works-grid fade-in-section">
+        <!-- Work 1 -->
+        <a href="gallery.html?category=graduation" class="work-item work-item-1">
+          <div class="work-img-placeholder">
+            <span class="work-cat">Graduation</span>
+            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Pre-Graduation Session</span>
+          </div>
+          <div class="work-info">
+            <div class="work-cat">GRADUATION · 2026</div>
+            <div class="work-title">Pre-Graduation at Sam Ratulangi University</div>
+          </div>
+        </a>
+
+        <!-- Work 2 -->
+        <a href="gallery.html?category=love-package" class="work-item work-item-2">
+          <div class="work-img-placeholder">
+            <span class="work-cat">Love Package</span>
+            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Wedding Ceremony</span>
+          </div>
+          <div class="work-info">
+            <div class="work-cat">LOVE PACKAGE · 2026</div>
+            <div class="work-title">Seaside Wedding Ceremony</div>
+          </div>
+        </a>
+
+        <!-- Work 3 -->
+        <a href="gallery.html?category=private-photoshoot" class="work-item work-item-3">
+          <div class="work-img-placeholder">
+            <span class="work-cat">Private Photoshoot</span>
+            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Model Portrait</span>
+          </div>
+          <div class="work-info">
+            <div class="work-cat">PRIVATE PHOTOSHOOT · 2026</div>
+            <div class="work-title">Editorial Model Studio Session</div>
+          </div>
+        </a>
+
+        <!-- Work 4 -->
+        <a href="gallery.html?category=event-documentation" class="work-item work-item-4">
+          <div class="work-img-placeholder">
+            <span class="work-cat">Event Documentation</span>
+            <span style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.5rem;">Corporate Gala</span>
+          </div>
+          <div class="work-info">
+            <div class="work-cat">EVENT DOCUMENTATION · 2026</div>
+            <div class="work-title">Annual Corporate Fellowship & Award</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO SECTION (5 Services with DUAL-CTA) -->
+    <section class="section-padding" style="background-color: #F5F3EF; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container fade-in-section">
+        <span class="sub-title">Services & Specialties</span>
+        <h2 class="heading-lg" style="margin-top: 0.5rem;">What We Do</h2>
+        <p class="body-muted" style="max-width: 600px; margin-top: 0.75rem;">Setiap lini layanan dikerjakan dengan pendekatan visual editorial yang disesuaikan dengan esensi karaktermu.</p>
+
+        <div class="services-list">
+          
+          <!-- 1. GRADUATION -->
+          <div class="service-row">
+            <a href="gallery.html?category=graduation" class="service-title-wrap" id="whatwedo-grad-link">
+              <h3 class="service-title">1. Graduation</h3>
+              <span class="service-subcats">Pre-Grad · Post-Grad</span>
+            </a>
+            <div class="service-preview-img"></div>
+            <div class="service-actions">
+              <a href="gallery.html?category=graduation" class="btn-link" id="whatwedo-grad-gal">Galeri</a>
+              <a href="pricelist.html#graduation" class="btn-harga" id="whatwedo-grad-price">Lihat Harga</a>
+            </div>
+          </div>
+
+          <!-- 2. PRIVATE PHOTOSHOOT -->
+          <div class="service-row">
+            <a href="gallery.html?category=private-photoshoot" class="service-title-wrap" id="whatwedo-priv-link">
+              <h3 class="service-title">2. Private Photoshoot</h3>
+              <span class="service-subcats">Birthday · Model · Pageant · Others</span>
+            </a>
+            <div class="service-preview-img"></div>
+            <div class="service-actions">
+              <a href="gallery.html?category=private-photoshoot" class="btn-link" id="whatwedo-priv-gal">Galeri</a>
+              <a href="contact.html?category=private-photoshoot" class="btn-harga" id="whatwedo-priv-price">Konsultasi Harga</a>
+            </div>
+          </div>
+
+          <!-- 3. LOVE PACKAGE -->
+          <div class="service-row">
+            <a href="gallery.html?category=love-package" class="service-title-wrap" id="whatwedo-love-link">
+              <h3 class="service-title">3. Love Package</h3>
+              <span class="service-subcats">Prewedding · Engagement · Wedding</span>
+            </a>
+            <div class="service-preview-img"></div>
+            <div class="service-actions">
+              <a href="gallery.html?category=love-package" class="btn-link" id="whatwedo-love-gal">Galeri</a>
+              <a href="contact.html?category=love-package" class="btn-harga" id="whatwedo-love-price">Konsultasi Harga</a>
+            </div>
+          </div>
+
+          <!-- 4. EVENT DOCUMENTATION -->
+          <div class="service-row">
+            <a href="gallery.html?category=event-documentation" class="service-title-wrap" id="whatwedo-event-link">
+              <h3 class="service-title">4. Event Documentation</h3>
+              <span class="service-subcats">Birthday · Office · Pageant · Church Event · Others</span>
+            </a>
+            <div class="service-preview-img"></div>
+            <div class="service-actions">
+              <a href="gallery.html?category=event-documentation" class="btn-link" id="whatwedo-event-gal">Galeri</a>
+              <a href="pricelist.html#event-documentation" class="btn-harga" id="whatwedo-event-price">Lihat Harga</a>
+            </div>
+          </div>
+
+          <!-- 5. COMMERCIAL -->
+          <div class="service-row">
+            <a href="gallery.html?category=commercial" class="service-title-wrap" id="whatwedo-comm-link">
+              <h3 class="service-title">5. Commercial</h3>
+              <span class="service-subcats">Brand · Architecture · Product</span>
+            </a>
+            <div class="service-preview-img"></div>
+            <div class="service-actions">
+              <a href="gallery.html?category=commercial" class="btn-link" id="whatwedo-comm-gal">Galeri</a>
+              <a href="contact.html?category=commercial" class="btn-harga" id="whatwedo-comm-price">Konsultasi Harga</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT PREVIEW SECTION -->
+    <section class="section-padding container">
+      <div class="about-preview-grid fade-in-section">
+        <div class="about-img-box" style="background: #E5DFD4; display: flex; align-items: center; justify-content: center; padding: 2rem; text-align: center;">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 2rem; color: var(--accent-gold);">Silent Memory</span>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;">Photography & Videography Team</p>
+          </div>
+        </div>
+
+        <div>
+          <span class="sub-title">The Team Behind The Lens</span>
+          <h2 class="heading-lg" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Silent Memory Photography</h2>
+          <p class="body-large body-muted" style="margin-bottom: 1.5rem;">Berbasis di Manado, tim Silent Memory percaya bahwa momen paling berharga seringkali hadir dalam keheningan dan gestur yang alami. Tugas kami bukan sekadar mengarahkan gaya, melainkan merekam cerita autentik yang dapat kamu kenang selamanya.</p>
+          <a href="about.html" class="btn btn-dark" id="home-about-cta">Mengenal Kami Lebih Dekat</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING CTA SECTION -->
+    <section class="booking-cta-section fade-in-section">
+      <div class="container">
+        <span class="sub-title" style="color: #D4B996; margin-bottom: 1rem; display: block;">Let's Create Together</span>
+        <h2 class="booking-cta-title font-serif">Siap Mengabadikan Momen Berhargamu?</h2>
+        <p style="max-width: 550px; margin: 0 auto 2.5rem auto; color: rgba(250, 250, 247, 0.7); font-size: 1.05rem;">Konsultasikan jadwal, konsep foto, atau kebutuhan dokumentasi event kamu langsung bersama tim kami.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary" id="home-booking-form-cta">Isi Form Reservasi</a>
+          <a href="https://wa.me/6285696293686?text=Halo%20Silent%20Memory,%20saya%20ingin%20konsultasi%20sesi%20foto" target="_blank" rel="noopener" class="btn btn-outline" style="color: var(--text-light); border-color: rgba(250,250,247,0.3);" id="home-booking-wa-cta">Chat WhatsApp Direct</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-logo-text">Silent Memory</span>
+          <span class="brand-logo-sub">Photography · Manado</span>
+          <p>Editorial photography & videography services based in Manado, North Sulawesi. Preserving unspoken emotions into timeless memories.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Work</a></li>
+            <li><a href="pricelist.html">Pricelist</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Categories</h4>
+          <ul class="footer-menu">
+            <li><a href="gallery.html?category=graduation">Graduation</a></li>
+            <li><a href="gallery.html?category=private-photoshoot">Private Photoshoot</a></li>
+            <li><a href="gallery.html?category=love-package">Love Package</a></li>
+            <li><a href="gallery.html?category=event-documentation">Event Documentation</a></li>
+            <li><a href="gallery.html?category=commercial">Commercial</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Direct Contact</h4>
+          <ul class="footer-menu">
+            <li><a href="https://wa.me/6285696293686" target="_blank" rel="noopener">Ndee: +62 856-9629-3686</a></li>
+            <li><a href="https://wa.me/6289636266723" target="_blank" rel="noopener">Icha: +62 896-3626-6723</a></li>
+            <li style="margin-top: 0.5rem; color: rgba(250,250,247,0.5); font-size: 0.85rem;">Manado, Sulawesi Utara</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Silent Memory Photography. All rights reserved.</span>
+        <span>Crafted with intention.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
