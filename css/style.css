@@ -194,10 +194,6 @@ h1, h2, h3, h4, .font-serif {
   color: var(--text-light);
 }
 
-.site-header.hero-transparent:not(.scrolled) .brand-logo-text {
-  color: var(--text-light);
-}
-
 .site-header.hero-transparent:not(.scrolled) .mobile-menu-toggle span {
   background-color: var(--text-light);
 }
@@ -212,26 +208,38 @@ h1, h2, h3, h4, .font-serif {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
 }
 
-.brand-logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--text-primary);
-  transition: color var(--transition-fast);
-}
-
-.brand-logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--accent-gold);
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
   display: block;
+  transition: opacity var(--transition-medium);
+}
+
+/* Header logo toggle depending on dark background vs scrolled light background */
+.site-header.hero-transparent:not(.scrolled) .brand-logo-img.logo-black {
+  display: none;
+}
+
+.site-header.hero-transparent:not(.scrolled) .brand-logo-img.logo-white {
+  display: block;
+}
+
+.site-header:not(.hero-transparent) .brand-logo-img.logo-white,
+.site-header.scrolled .brand-logo-img.logo-white {
+  display: none;
+}
+
+.site-header:not(.hero-transparent) .brand-logo-img.logo-black,
+.site-header.scrolled .brand-logo-img.logo-black {
+  display: block;
+}
+
+.footer-brand .brand-logo-img {
+  height: 48px;
+  margin-bottom: 0.75rem;
 }
 
 .nav-links {
@@ -432,12 +440,6 @@ h1, h2, h3, h4, .font-serif {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 4rem;
-}
-
-.footer-brand .brand-logo-text {
-  color: var(--text-light);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .footer-brand p {
