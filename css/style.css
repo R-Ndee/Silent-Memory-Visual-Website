@@ -211,8 +211,8 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .brand-logo-img {
-  height: 38px;
-  max-height: 38px;
+  height: 36px;
+  max-height: 36px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -221,8 +221,8 @@ h1, h2, h3, h4, .font-serif {
 
 @media (max-width: 768px) {
   .brand-logo-img {
-    height: 32px;
-    max-height: 32px;
+    height: 28px;
+    max-height: 28px;
   }
 }
 
@@ -246,8 +246,8 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .footer-brand .brand-logo-img {
-  height: 44px;
-  max-height: 44px;
+  height: 40px;
+  max-height: 40px;
   margin-bottom: 0.75rem;
 }
 
