@@ -211,34 +211,43 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .brand-logo-img {
-  height: 42px;
+  height: 38px;
+  max-height: 38px;
   width: auto;
   object-fit: contain;
   display: block;
   transition: opacity var(--transition-medium);
 }
 
+@media (max-width: 768px) {
+  .brand-logo-img {
+    height: 32px;
+    max-height: 32px;
+  }
+}
+
 /* Header logo toggle depending on dark background vs scrolled light background */
 .site-header.hero-transparent:not(.scrolled) .brand-logo-img.logo-black {
-  display: none;
+  display: none !important;
 }
 
 .site-header.hero-transparent:not(.scrolled) .brand-logo-img.logo-white {
-  display: block;
+  display: block !important;
 }
 
 .site-header:not(.hero-transparent) .brand-logo-img.logo-white,
 .site-header.scrolled .brand-logo-img.logo-white {
-  display: none;
+  display: none !important;
 }
 
 .site-header:not(.hero-transparent) .brand-logo-img.logo-black,
 .site-header.scrolled .brand-logo-img.logo-black {
-  display: block;
+  display: block !important;
 }
 
 .footer-brand .brand-logo-img {
-  height: 48px;
+  height: 44px;
+  max-height: 44px;
   margin-bottom: 0.75rem;
 }
 
