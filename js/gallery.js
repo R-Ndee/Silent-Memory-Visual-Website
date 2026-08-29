@@ -13,11 +13,7 @@ const CATEGORIES_DATA = {
   },
   'graduation': {
     name: 'Graduation',
-    subcategories: [
-      { id: 'all', label: 'All Graduation' },
-      { id: 'pre-grad', label: 'Pre-Grad' },
-      { id: 'post-grad', label: 'Post-Grad' }
-    ],
+    subcategories: [],
     hasPricelist: true,
     pricelistAnchor: 'graduation'
   },
@@ -25,17 +21,28 @@ const CATEGORIES_DATA = {
     name: 'Private Photoshoot',
     subcategories: [
       { id: 'all', label: 'All Private' },
-      { id: 'birthday', label: 'Birthday' },
       { id: 'model', label: 'Model' },
       { id: 'pageant', label: 'Pageant' },
       { id: 'others', label: 'Others' }
     ],
     hasPricelist: false
   },
+  'romantic-package': {
+    name: 'Love Package',
+    subcategories: [
+      { id: 'all', label: 'All Romantic' },
+      { id: 'couple', label: 'Couple' },
+      { id: 'prewedding', label: 'Prewedding' },
+      { id: 'engagement', label: 'Engagement' },
+      { id: 'wedding', label: 'Wedding' }
+    ],
+    hasPricelist: false
+  },
   'love-package': {
     name: 'Love Package',
     subcategories: [
-      { id: 'all', label: 'All Love' },
+      { id: 'all', label: 'All Romantic' },
+      { id: 'couple', label: 'Couple' },
       { id: 'prewedding', label: 'Prewedding' },
       { id: 'engagement', label: 'Engagement' },
       { id: 'wedding', label: 'Wedding' }
@@ -47,7 +54,6 @@ const CATEGORIES_DATA = {
     subcategories: [
       { id: 'all', label: 'All Events' },
       { id: 'birthday', label: 'Birthday' },
-      { id: 'office', label: 'Office' },
       { id: 'pageant', label: 'Pageant' },
       { id: 'church-event', label: 'Church Event' },
       { id: 'others', label: 'Others' }
@@ -72,13 +78,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCursorFollower();
   initLightbox();
 
-  // Load manifest JSON
+  // Load manifest JSON with script fallback for direct file:// browsing
   try {
     const response = await fetch('data/gallery-manifest.json');
+    if (!response.ok) throw new Error(`HTTP error ${response.status}`);
     manifestData = await response.json();
   } catch (err) {
-    console.error('Failed to load gallery manifest:', err);
-    manifestData = [];
+    if (window.GALLERY_MANIFEST && Array.isArray(window.GALLERY_MANIFEST)) {
+      manifestData = window.GALLERY_MANIFEST;
+    } else {
+      console.error('Failed to load gallery manifest:', err);
+      manifestData = [];
+    }
   }
 
   // Parse initial category from URL query parameters (e.g. ?category=graduation)
@@ -190,7 +201,9 @@ function renderGallery() {
     currentFilteredList = manifestData.filter(item => item.featured !== false);
   } else {
     currentFilteredList = manifestData.filter(item => {
-      const matchCat = item.category === currentCategory;
+      const matchCat = item.category === currentCategory || 
+                       (currentCategory === 'romantic-package' && item.category === 'love-package') || 
+                       (currentCategory === 'love-package' && item.category === 'romantic-package');
       if (!matchCat) return false;
       if (currentSubcategory === 'all') return true;
       return item.subcategory === currentSubcategory;
@@ -204,7 +217,9 @@ function renderGallery() {
     masonryContainer.innerHTML = `
       <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-secondary);">
         <p style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Belum ada foto dalam kategori ini</p>
-        <p style="font-size: 0.9rem;">Foto portofolio terbaru sedang disiapkan oleh tim Silent Memory.</p>
+        <p style="font-size: 0.95rem; max-width: 550px; margin: 0 auto; line-height: 1.6;">
+          Portofolio untuk kategori ini sedang kami siapkan. <a href="contact.html" style="color: var(--accent-gold); text-decoration: underline; font-weight: 500;">Hubungi kami</a> untuk melihat contoh karya terbaru.
+        </p>
       </div>
     `;
     return;
@@ -221,18 +236,16 @@ function renderGallery() {
     const fallbackSrc = `assets/images/${item.src}-900.webp`;
 
     itemEl.innerHTML = `
-      <div class="gallery-placeholder-box ${item.orientation || 'portrait'}">
-        <span class="gallery-placeholder-cat">${(item.category || '').toUpperCase()} · ${item.year || '2026'}</span>
-        <h3 class="gallery-placeholder-title">${item.title || 'Silent Memory Photography'}</h3>
-      </div>
       <img src="${fallbackSrc}" 
            srcset="${srcset}" 
            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
            alt="${item.title || 'Silent Memory Photography'}"
-           loading="lazy" 
-           style="display: none;"
-           onload="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-           onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
+           loading="lazy"
+           onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+      <div class="gallery-placeholder-box ${item.orientation || 'portrait'}" style="display: none;">
+        <span class="gallery-placeholder-cat">${(item.category || '').toUpperCase()} · ${item.year || '2026'}</span>
+        <h3 class="gallery-placeholder-title">${item.title || 'Silent Memory Photography'}</h3>
+      </div>
       <div class="gallery-item-info">
         <span style="font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-gold); display: block;">${(item.category || '').toUpperCase()}</span>
         <span style="font-family: var(--font-heading); font-size: 1.1rem; color: #FFFFFF; display: block; margin-top: 0.2rem;">${item.title || 'Silent Memory Photography'}</span>

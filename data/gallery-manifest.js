@@ -1,4 +1,4 @@
-[
+window.GALLERY_MANIFEST = [
   {
     "id": "event-documentation-birthday-birthday1",
     "src": "event-documentation/birthday/event-documentation-birthday-birthday1",
@@ -230,4 +230,4 @@
     "featured": true,
     "title": "Evening Gown Pageant Portrait"
   }
-]
+];
