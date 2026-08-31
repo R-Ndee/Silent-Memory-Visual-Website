@@ -1,6 +1,6 @@
 """
 CARA PAKAI:
-1. Taruh foto asli (JPG/PNG) ke folder original/{kategori}/{subkategori}/
+1. Taruh foto asli (JPG/PNG/HEIC) ke folder original/{kategori}/{subkategori}/
    Contoh: original/love-package/wedding/DSC_001.JPG
 
 2. Jalankan dari root project:
@@ -34,7 +34,14 @@ from pathlib import Path
 from datetime import datetime
 from PIL import Image, ImageOps
 
-SUPPORTED_EXTENSIONS = {'.jpg', '.jpeg', '.png'}
+try:
+    import pillow_heif  # type: ignore  # pyrefly: ignore [missing-import]
+    pillow_heif.register_heif_opener()
+    HEIF_AVAILABLE = True
+except ImportError:
+    HEIF_AVAILABLE = False
+
+SUPPORTED_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.heic', '.heif'}
 TARGET_SIZES = [900, 1600, 2560]
 
 def sanitize_filename(stem: str) -> str:
@@ -62,11 +69,8 @@ def process_single_image(src_path: Path, output_dir: Path, slug_prefix: str, tar
         orientation = get_orientation(w, h)
         max_edge = max(w, h)
 
-        # Determine target sizes that don't upscale
-        valid_sizes = [s for s in target_sizes if s <= max_edge]
-        # If original image is smaller than smallest target, at least include smallest size or keep as is without upscale
-        if not valid_sizes and target_sizes:
-            valid_sizes = [min(target_sizes)]
+        # Always generate all target sizes to ensure 900w, 1600w, and 2560w WebP assets exist
+        valid_sizes = list(target_sizes)
 
         expected_outputs = [output_dir / f"{slug_prefix}-{s}.webp" for s in valid_sizes]
 
@@ -122,6 +126,10 @@ def main():
                 image_files.append(Path(root) / f)
 
     image_files.sort()
+
+    if not HEIF_AVAILABLE and any(f.suffix.lower() in ('.heic', '.heif') for f in image_files):
+        print("[WARNING] Ditemukan file .heic/.heif tetapi modul 'pillow-heif' belum ter-install di environment ini.")
+        print("          Jalankan: python3 -m pip install pillow-heif\n")
 
     processed_count = 0
     skipped_count = 0

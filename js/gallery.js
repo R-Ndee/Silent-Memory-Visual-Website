@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Load manifest JSON with script fallback for direct file:// browsing
   try {
-    const response = await fetch('data/gallery-manifest.json');
+    const response = await fetch('data/gallery-manifest.json?v=' + Date.now(), { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP error ${response.status}`);
     manifestData = await response.json();
   } catch (err) {

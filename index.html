@@ -224,7 +224,13 @@
       object-fit: cover;
       background-color: #E6DFD5;
       margin: 0 auto;
-      border-radius: 2px;
+      border-radius: 4px;
+      display: block;
+      transition: transform var(--transition-medium);
+    }
+
+    .service-row:hover .service-preview-img {
+      transform: scale(1.04);
     }
 
     .service-actions {
@@ -287,14 +293,26 @@
         aspect-ratio: 4/3;
       }
       .service-row {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: 1fr auto;
+        gap: 1.25rem 1rem;
+        align-items: center;
+        padding: 2rem 0;
+      }
+      .service-title-wrap {
+        grid-column: 1;
       }
       .service-preview-img {
-        display: none;
+        display: block;
+        width: 120px;
+        height: 80px;
+        grid-column: 2;
+        margin: 0;
       }
       .service-actions {
+        grid-column: 1 / -1;
         justify-content: flex-start;
+        gap: 1.25rem;
+        margin-top: 0.25rem;
       }
       .about-preview-grid {
         grid-template-columns: 1fr;
@@ -313,6 +331,18 @@
       }
       .work-img-placeholder {
         padding: 1.25rem 1rem;
+      }
+      .service-row {
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        padding: 1.5rem 0;
+      }
+      .service-preview-img {
+        width: 95px;
+        height: 65px;
+      }
+      .service-actions {
+        gap: 1rem;
       }
     }
   </style>
@@ -508,7 +538,7 @@
               <h3 class="service-title">5. Commercial</h3>
               <span class="service-subcats">Brand · Architecture · Product</span>
             </a>
-            <div class="service-preview-img" style="background-color: #E8E2D7; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-secondary);">Coming Soon</div>
+            <img src="assets/images/commercial/commercial-commercial1-900.webp" alt="Commercial Preview" class="service-preview-img">
             <div class="service-actions">
               <a href="gallery.html?category=commercial" class="btn-link" id="whatwedo-comm-gal">Galeri</a>
               <a href="contact.html?category=commercial" class="btn-harga" id="whatwedo-comm-price">Konsultasi Harga</a>
