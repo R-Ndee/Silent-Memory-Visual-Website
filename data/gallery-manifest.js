@@ -216,7 +216,7 @@ window.GALLERY_MANIFEST = [
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
-    "featured": true,
+    "featured": false,
     "title": "Miss Manado Pageant Portrait Session"
   },
   {
@@ -458,7 +458,7 @@ window.GALLERY_MANIFEST = [
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
-    "featured": false,
+    "featured": true,
     "title": "Pageant Stage Evening Gown Portrait"
   },
   {
@@ -603,5 +603,85 @@ window.GALLERY_MANIFEST = [
     "year": 2026,
     "featured": false,
     "title": "Commencement Honor Portrait"
+  },
+  {
+    "id": "graduation-graduation18",
+    "src": "graduation/graduation-graduation18",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "love-package-couple-couple4",
+    "src": "love-package/couple/love-package-couple-couple4",
+    "category": "love-package",
+    "subcategory": "couple",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "love-package-couple-couple5",
+    "src": "love-package/couple/love-package-couple-couple5",
+    "category": "love-package",
+    "subcategory": "couple",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "love-package-engagement-engagement4",
+    "src": "love-package/engagement/love-package-engagement-engagement4",
+    "category": "love-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "love-package-engagement-engagement5",
+    "src": "love-package/engagement/love-package-engagement-engagement5",
+    "category": "love-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "love-package-engagement-engagement6",
+    "src": "love-package/engagement/love-package-engagement-engagement6",
+    "category": "love-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-pageant-privatepeagent4",
+    "src": "private-photoshoot/pageant/private-photoshoot-pageant-privatepeagent4",
+    "category": "private-photoshoot",
+    "subcategory": "pageant",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-pageant-privatepeagent5",
+    "src": "private-photoshoot/pageant/private-photoshoot-pageant-privatepeagent5",
+    "category": "private-photoshoot",
+    "subcategory": "pageant",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
   }
 ];
