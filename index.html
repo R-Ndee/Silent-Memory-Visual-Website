@@ -237,16 +237,37 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 1.5rem;
+      gap: 0.75rem;
+    }
+
+    .btn-galeri {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      font-weight: 500;
+      background-color: var(--bg-primary);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-galeri:hover {
+      border-color: var(--text-primary);
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
     }
 
     .btn-harga {
       font-size: 0.8rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent-gold);
-      padding: 0.4rem 0.8rem;
+      padding: 0.45rem 1rem;
       border: 1px solid var(--accent-gold);
+      border-radius: 20px;
+      font-weight: 500;
       transition: all var(--transition-fast);
     }
 
@@ -435,8 +456,8 @@
 
         <!-- Work 2 -->
         <a href="gallery.html?category=romantic-package" class="work-item work-item-2">
-          <img src="assets/images/love-package/couple/love-package-couple-couple1-900.webp" 
-               srcset="assets/images/love-package/couple/love-package-couple-couple1-900.webp 900w, assets/images/love-package/couple/love-package-couple-couple1-1600.webp 1600w" 
+          <img src="assets/images/romantic-package/couple/romantic-package-couple-couple1-900.webp" 
+               srcset="assets/images/romantic-package/couple/romantic-package-couple-couple1-900.webp 900w, assets/images/romantic-package/couple/romantic-package-couple-couple1-1600.webp 1600w" 
                alt="Romantic Sunset Couple Session" 
                style="width: 100%; height: 100%; object-fit: cover; display: block;">
           <div class="work-info">
@@ -488,7 +509,7 @@
             </a>
             <img src="assets/images/graduation/graduation-graduation2-900.webp" alt="Graduation Preview" class="service-preview-img">
             <div class="service-actions">
-              <a href="gallery.html?category=graduation" class="btn-link" id="whatwedo-grad-gal">Galeri</a>
+              <a href="gallery.html?category=graduation" class="btn-galeri" id="whatwedo-grad-gal">Galeri</a>
               <a href="pricelist.html#graduation" class="btn-harga" id="whatwedo-grad-price">Lihat Harga</a>
             </div>
           </div>
@@ -501,7 +522,7 @@
             </a>
             <img src="assets/images/private-photoshoot/model/private-photoshoot-model-model2-900.webp" alt="Private Photoshoot Preview" class="service-preview-img">
             <div class="service-actions">
-              <a href="gallery.html?category=private-photoshoot" class="btn-link" id="whatwedo-priv-gal">Galeri</a>
+              <a href="gallery.html?category=private-photoshoot" class="btn-galeri" id="whatwedo-priv-gal">Galeri</a>
               <a href="contact.html?category=private-photoshoot" class="btn-harga" id="whatwedo-priv-price">Konsultasi Harga</a>
             </div>
           </div>
@@ -512,9 +533,9 @@
               <h3 class="service-title">3. Romantic Package</h3>
               <span class="service-subcats">Prewedding · Engagement · Wedding</span>
             </a>
-            <img src="assets/images/love-package/engagement/love-package-engagement-engagement1-900.webp" alt="Romantic Package Preview" class="service-preview-img">
+            <img src="assets/images/romantic-package/engagement/romantic-package-engagement-engagement1-900.webp" alt="Romantic Package Preview" class="service-preview-img">
             <div class="service-actions">
-              <a href="gallery.html?category=romantic-package" class="btn-link" id="whatwedo-love-gal">Galeri</a>
+              <a href="gallery.html?category=romantic-package" class="btn-galeri" id="whatwedo-love-gal">Galeri</a>
               <a href="contact.html?category=romantic-package" class="btn-harga" id="whatwedo-love-price">Konsultasi Harga</a>
             </div>
           </div>
@@ -527,7 +548,7 @@
             </a>
             <img src="assets/images/event-documentation/church-event/event-documentation-church-event-church1-900.webp" alt="Event Documentation Preview" class="service-preview-img">
             <div class="service-actions">
-              <a href="gallery.html?category=event-documentation" class="btn-link" id="whatwedo-event-gal">Galeri</a>
+              <a href="gallery.html?category=event-documentation" class="btn-galeri" id="whatwedo-event-gal">Galeri</a>
               <a href="pricelist.html#event-documentation" class="btn-harga" id="whatwedo-event-price">Lihat Harga</a>
             </div>
           </div>
@@ -540,7 +561,7 @@
             </a>
             <img src="assets/images/commercial/commercial-commercial1-900.webp" alt="Commercial Preview" class="service-preview-img">
             <div class="service-actions">
-              <a href="gallery.html?category=commercial" class="btn-link" id="whatwedo-comm-gal">Galeri</a>
+              <a href="gallery.html?category=commercial" class="btn-galeri" id="whatwedo-comm-gal">Galeri</a>
               <a href="contact.html?category=commercial" class="btn-harga" id="whatwedo-comm-price">Konsultasi Harga</a>
             </div>
           </div>
