@@ -28,7 +28,7 @@ const CATEGORIES_DATA = {
     hasPricelist: false
   },
   'romantic-package': {
-    name: 'Love Package',
+    name: 'Romantic Package',
     subcategories: [
       { id: 'all', label: 'All Romantic' },
       { id: 'couple', label: 'Couple' },
@@ -39,7 +39,7 @@ const CATEGORIES_DATA = {
     hasPricelist: false
   },
   'love-package': {
-    name: 'Love Package',
+    name: 'Romantic Package',
     subcategories: [
       { id: 'all', label: 'All Romantic' },
       { id: 'couple', label: 'Couple' },

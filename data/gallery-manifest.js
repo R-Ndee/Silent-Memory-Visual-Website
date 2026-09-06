@@ -74,7 +74,7 @@ window.GALLERY_MANIFEST = [
     "orientation": "portrait",
     "year": 2026,
     "featured": true,
-    "title": "Sam Ratulangi University Pre-Graduation"
+    "title": "Sam Ratulangi University Graduation"
   },
   {
     "id": "graduation-graduation2",
@@ -85,7 +85,7 @@ window.GALLERY_MANIFEST = [
     "orientation": "portrait",
     "year": 2026,
     "featured": true,
-    "title": "Post-Graduation Commencement Joy"
+    "title": "Graduation Commencement Joy"
   },
   {
     "id": "graduation-graduation3",
@@ -132,9 +132,9 @@ window.GALLERY_MANIFEST = [
     "title": "Graduation Cap & Gown Celebration"
   },
   {
-    "id": "love-package-couple-couple1",
-    "src": "love-package/couple/love-package-couple-couple1",
-    "category": "love-package",
+    "id": "romantic-package-couple-couple1",
+    "src": "romantic-package/couple/romantic-package-couple-couple1",
+    "category": "romantic-package",
     "subcategory": "couple",
     "media_type": "photo",
     "orientation": "portrait",
@@ -143,9 +143,9 @@ window.GALLERY_MANIFEST = [
     "title": "Romantic Sunset Couple Session"
   },
   {
-    "id": "love-package-couple-couple2",
-    "src": "love-package/couple/love-package-couple-couple2",
-    "category": "love-package",
+    "id": "romantic-package-couple-couple2",
+    "src": "romantic-package/couple/romantic-package-couple-couple2",
+    "category": "romantic-package",
     "subcategory": "couple",
     "media_type": "photo",
     "orientation": "portrait",
@@ -154,9 +154,9 @@ window.GALLERY_MANIFEST = [
     "title": "Intimate Couple Golden Hour"
   },
   {
-    "id": "love-package-engagement-engagement1",
-    "src": "love-package/engagement/love-package-engagement-engagement1",
-    "category": "love-package",
+    "id": "romantic-package-engagement-engagement1",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement1",
+    "category": "romantic-package",
     "subcategory": "engagement",
     "media_type": "photo",
     "orientation": "portrait",
@@ -165,9 +165,9 @@ window.GALLERY_MANIFEST = [
     "title": "Warm Engagement Ring Ceremony"
   },
   {
-    "id": "love-package-engagement-engagement2",
-    "src": "love-package/engagement/love-package-engagement-engagement2",
-    "category": "love-package",
+    "id": "romantic-package-engagement-engagement2",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement2",
+    "category": "romantic-package",
     "subcategory": "engagement",
     "media_type": "photo",
     "orientation": "portrait",
@@ -407,9 +407,9 @@ window.GALLERY_MANIFEST = [
     "title": "Fellowship Gathering Portrait"
   },
   {
-    "id": "love-package-couple-couple3",
-    "src": "love-package/couple/love-package-couple-couple3",
-    "category": "love-package",
+    "id": "romantic-package-couple-couple3",
+    "src": "romantic-package/couple/romantic-package-couple-couple3",
+    "category": "romantic-package",
     "subcategory": "couple",
     "media_type": "photo",
     "orientation": "portrait",
@@ -440,9 +440,9 @@ window.GALLERY_MANIFEST = [
     "title": "Commencement Celebration Portrait"
   },
   {
-    "id": "love-package-engagement-engagement3",
-    "src": "love-package/engagement/love-package-engagement-engagement3",
-    "category": "love-package",
+    "id": "romantic-package-engagement-engagement3",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement3",
+    "category": "romantic-package",
     "subcategory": "engagement",
     "media_type": "photo",
     "orientation": "portrait",
@@ -615,9 +615,9 @@ window.GALLERY_MANIFEST = [
     "featured": false
   },
   {
-    "id": "love-package-couple-couple4",
-    "src": "love-package/couple/love-package-couple-couple4",
-    "category": "love-package",
+    "id": "romantic-package-couple-couple4",
+    "src": "romantic-package/couple/romantic-package-couple-couple4",
+    "category": "romantic-package",
     "subcategory": "couple",
     "media_type": "photo",
     "orientation": "portrait",
@@ -625,9 +625,9 @@ window.GALLERY_MANIFEST = [
     "featured": false
   },
   {
-    "id": "love-package-couple-couple5",
-    "src": "love-package/couple/love-package-couple-couple5",
-    "category": "love-package",
+    "id": "romantic-package-couple-couple5",
+    "src": "romantic-package/couple/romantic-package-couple-couple5",
+    "category": "romantic-package",
     "subcategory": "couple",
     "media_type": "photo",
     "orientation": "portrait",
@@ -635,9 +635,9 @@ window.GALLERY_MANIFEST = [
     "featured": true
   },
   {
-    "id": "love-package-engagement-engagement4",
-    "src": "love-package/engagement/love-package-engagement-engagement4",
-    "category": "love-package",
+    "id": "romantic-package-engagement-engagement4",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement4",
+    "category": "romantic-package",
     "subcategory": "engagement",
     "media_type": "photo",
     "orientation": "portrait",
@@ -645,9 +645,9 @@ window.GALLERY_MANIFEST = [
     "featured": false
   },
   {
-    "id": "love-package-engagement-engagement5",
-    "src": "love-package/engagement/love-package-engagement-engagement5",
-    "category": "love-package",
+    "id": "romantic-package-engagement-engagement5",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement5",
+    "category": "romantic-package",
     "subcategory": "engagement",
     "media_type": "photo",
     "orientation": "portrait",
@@ -655,9 +655,9 @@ window.GALLERY_MANIFEST = [
     "featured": false
   },
   {
-    "id": "love-package-engagement-engagement6",
-    "src": "love-package/engagement/love-package-engagement-engagement6",
-    "category": "love-package",
+    "id": "romantic-package-engagement-engagement6",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement6",
+    "category": "romantic-package",
     "subcategory": "engagement",
     "media_type": "photo",
     "orientation": "portrait",

@@ -10,7 +10,7 @@ Untuk menambahkan foto portofolio baru ke dalam sistem galeri web, ikuti langkah
 
 1. **Simpan Foto Mentah (JPG/PNG)**
    Taruh file foto mentah (`.jpg`, `.jpeg`, atau `.png`) ke dalam struktur folder `original/{category}/{subcategory}/` sesuai kategori portofolio.
-   - Contoh untuk kategori Love Package sub-kategori Wedding: simpan foto di `original/love-package/wedding/DSC_001.JPG`.
+   - Contoh untuk kategori Romantic Package sub-kategori Wedding: simpan foto di `original/love-package/wedding/DSC_001.JPG`.
    - Untuk kategori Commercial yang belum memiliki sub-kategori: simpan foto langsung di `original/commercial/`.
    - Untuk foto anggota tim: simpan foto di `original/team/{nama}.jpg` (contoh: `pierre.jpg`, `chilli.jpg`, `icha.jpg`, `ndee.jpg`).
 
@@ -51,7 +51,7 @@ Bayangkan tim baru saja menyelesaikan sesi dokumentasi pernikahan untuk klien Sd
        "featured": false
      }
      ```
-4. **Kurasi Galeri**: Kurator membuka `data/gallery-manifest.json`, mengubah `"featured": false` menjadi `"featured": true`, dan menambahkan judul. Foto kini resmi muncul di galeri "ALL" dan galeri "Love Package > Wedding".
+4. **Kurasi Galeri**: Kurator membuka `data/gallery-manifest.json`, mengubah `"featured": false` menjadi `"featured": true`, dan menambahkan judul. Foto kini resmi muncul di galeri "ALL" dan galeri "Romantic Package > Wedding".
 
 ### Opsi CLI Argument
 
