@@ -161,7 +161,7 @@
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
-    "featured": true,
+    "featured": false,
     "title": "Warm Engagement Ring Ceremony"
   },
   {
@@ -414,7 +414,7 @@
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
-    "featured": true,
+    "featured": false,
     "title": "Sunset Couple Warm Embrace"
   },
   {
@@ -642,7 +642,7 @@
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
-    "featured": false
+    "featured": true
   },
   {
     "id": "romantic-package-engagement-engagement5",
@@ -650,7 +650,7 @@
     "category": "romantic-package",
     "subcategory": "engagement",
     "media_type": "photo",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "year": 2026,
     "featured": false
   },
@@ -682,6 +682,166 @@
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model10",
+    "src": "private-photoshoot/model/private-photoshoot-model-model10",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
     "featured": true
+  },
+  {
+    "id": "private-photoshoot-model-model11",
+    "src": "private-photoshoot/model/private-photoshoot-model-model11",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model12",
+    "src": "private-photoshoot/model/private-photoshoot-model-model12",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model5",
+    "src": "private-photoshoot/model/private-photoshoot-model-model5",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model6",
+    "src": "private-photoshoot/model/private-photoshoot-model-model6",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model7",
+    "src": "private-photoshoot/model/private-photoshoot-model-model7",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "private-photoshoot-model-model8",
+    "src": "private-photoshoot/model/private-photoshoot-model-model8",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model9",
+    "src": "private-photoshoot/model/private-photoshoot-model-model9",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "romantic-package-engagement-engagement10",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement10",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "romantic-package-engagement-engagement11",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement11",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "romantic-package-engagement-engagement12",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement12",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "romantic-package-engagement-engagement13",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement13",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "romantic-package-engagement-engagement14",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement14",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "romantic-package-engagement-engagement7",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement7",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "romantic-package-engagement-engagement8",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement8",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "romantic-package-engagement-engagement9",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement9",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
   }
 ]
