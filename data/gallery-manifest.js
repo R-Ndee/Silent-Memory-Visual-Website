@@ -106,7 +106,7 @@ window.GALLERY_MANIFEST = [
     "media_type": "photo",
     "orientation": "landscape",
     "year": 2026,
-    "featured": true,
+    "featured": false,
     "title": "Campus Landmark Graduation Sunset"
   },
   {
@@ -260,7 +260,7 @@ window.GALLERY_MANIFEST = [
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
-    "featured": true,
+    "featured": false,
     "title": "Commercial Studio Portrait"
   },
   {
@@ -843,5 +843,55 @@ window.GALLERY_MANIFEST = [
     "orientation": "portrait",
     "year": 2026,
     "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model13",
+    "src": "private-photoshoot/model/private-photoshoot-model-model13",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model14",
+    "src": "private-photoshoot/model/private-photoshoot-model-model14",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model15",
+    "src": "private-photoshoot/model/private-photoshoot-model-model15",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "private-photoshoot-model-model16",
+    "src": "private-photoshoot/model/private-photoshoot-model-model16",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "private-photoshoot-model-model17",
+    "src": "private-photoshoot/model/private-photoshoot-model-model17",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": true
   }
 ];
