@@ -392,7 +392,12 @@
 
 @media (max-width: 640px) {
   .gallery-masonry {
-    column-count: 1;
+    column-count: 2;
+    column-gap: 0.5rem;
+  }
+
+  .gallery-item {
+    margin-bottom: 0.5rem;
   }
 
   .filter-bar-main, .filter-bar-sub {
