@@ -20,89 +20,132 @@
 
   <style>
     /* Homepage Specific Inline Styles */
+    /* ─── HERO ─── */
     .hero-section {
       position: relative;
       width: 100%;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-top: calc(var(--navbar-height) + 4rem);
-      padding-bottom: clamp(4rem, 8vw, 8rem);
-      background-color: var(--bg-dark);
+      align-items: center;
       color: var(--text-light);
       overflow: hidden;
     }
 
+    /* Full-screen background photo */
     .hero-bg {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.65;
-      filter: brightness(0.9);
-      background-color: #2a2825;
-      /* Fallback */
+      /* Person on the right, sunset visible on the left */
+      object-position: right center;
+      display: block;
+      z-index: 0;
     }
 
+    /* Left-to-right gradient scrim for text legibility */
     .hero-scrim {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(180deg, rgba(26, 26, 24, 0.4) 0%, rgba(26, 26, 24, 0.2) 40%, rgba(26, 26, 24, 0.85) 100%);
+      inset: 0;
       z-index: 1;
+      background:
+        linear-gradient(to right,
+          rgba(15, 10, 8, 0.82) 0%,
+          rgba(15, 10, 8, 0.55) 45%,
+          rgba(15, 10, 8, 0.10) 70%,
+          rgba(15, 10, 8, 0.0) 100%);
+      pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 900px;
+      max-width: 560px;
+      padding-top: calc(var(--navbar-height) + 3rem);
+      padding-bottom: clamp(4rem, 8vw, 8rem);
+      padding-left: clamp(1.5rem, 5vw, 7rem);
+      padding-right: clamp(1.5rem, 4vw, 4rem);
     }
 
     .hero-title {
-      font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+      font-size: clamp(2.2rem, 4.5vw, 4.25rem);
       font-weight: 300;
-      line-height: 1.08;
+      line-height: 1.1;
       margin-bottom: 1.5rem;
     }
 
+    .hero-title .title-main {
+      display: block;
+      color: #E8D3B9;
+      font-style: normal;
+      font-weight: 300;
+    }
+
     .hero-title em {
+      display: block;
       font-style: italic;
       font-weight: 400;
-      color: #E8D3B9;
+      font-size: clamp(1.1rem, 2vw, 1.75rem);
+      margin-top: 0.6rem;
+      line-height: 1.4;
+      background: linear-gradient(135deg, #C9702A 0%, #E8903A 40%, #C05A20 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-sub {
-      font-size: clamp(1rem, 1.5vw, 1.25rem);
-      color: rgba(250, 250, 247, 0.85);
-      max-width: 580px;
+      font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+      color: rgba(250, 250, 247, 0.65);
+      max-width: 440px;
       margin-bottom: 2.5rem;
       font-weight: 300;
+      letter-spacing: 0.02em;
     }
 
     .scroll-indicator {
       position: absolute;
       bottom: 2rem;
       right: clamp(1.5rem, 4vw, 4rem);
-      z-index: 2;
+      z-index: 3;
       display: flex;
       align-items: center;
       gap: 0.75rem;
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(250, 250, 247, 0.6);
+      color: rgba(250, 250, 247, 0.45);
     }
 
     .scroll-indicator::after {
       content: '';
       width: 40px;
       height: 1px;
-      background-color: rgba(250, 250, 247, 0.4);
+      background-color: rgba(250, 250, 247, 0.3);
+    }
+
+    /* ─── RESPONSIVE: mobile portrait ─── */
+    @media (max-width: 640px) {
+      .hero-bg {
+        /* On mobile, shift slightly so person is partially visible on the right */
+        object-position: 75% center;
+      }
+      .hero-scrim {
+        /* Stronger scrim on mobile so text stays legible */
+        background:
+          linear-gradient(to right,
+            rgba(15, 10, 8, 0.88) 0%,
+            rgba(15, 10, 8, 0.65) 55%,
+            rgba(15, 10, 8, 0.15) 80%,
+            rgba(15, 10, 8, 0.0) 100%);
+      }
+      .hero-title {
+        font-size: clamp(1.9rem, 7vw, 2.6rem);
+      }
+      .hero-title em {
+        font-size: clamp(1rem, 4.5vw, 1.4rem);
+      }
     }
 
     /* Selected Works Preview */
@@ -447,22 +490,27 @@
 
     <!-- HERO SECTION -->
     <section class="hero-section">
-      <div class="hero-scrim"></div>
-      <img src="assets/images/graduation/graduation-graduation1-1600.webp"
-        srcset="assets/images/graduation/graduation-graduation1-900.webp 900w, assets/images/graduation/graduation-graduation1-1600.webp 1600w, assets/images/graduation/graduation-graduation1-2560.webp 2560w"
-        sizes="100vw" alt="Silent Memory Photography Hero" class="hero-bg">
 
-      <div class="container hero-content fade-in-section">
-        <span class="sub-title" style="color: #D4B996; margin-bottom: 1rem; display: block;">Visual Storytellers in
-          Manado</span>
-        <h1 class="hero-title">Every moment is worth keeping.<br><em>Eternalizing your memories trough visual
-            aesthetics.</em></h1>
+      <!-- Full-screen background photo -->
+      <img src="assets/images/private-photoshoot/model/private-photoshoot-model-model16-1600.webp"
+        srcset="assets/images/private-photoshoot/model/private-photoshoot-model-model16-900.webp 900w, assets/images/private-photoshoot/model/private-photoshoot-model-model16-1600.webp 1600w, assets/images/private-photoshoot/model/private-photoshoot-model-model16-2560.webp 2560w"
+        sizes="100vw" alt="Silent Memory Photography — Editorial Model Session" class="hero-bg">
+
+      <!-- Left-to-right gradient overlay -->
+      <div class="hero-scrim"></div>
+
+      <!-- Text content overlaid on the left -->
+      <div class="hero-content fade-in-section">
+        <span class="sub-title" style="color: #C9702A; margin-bottom: 1rem; display: block; letter-spacing: 0.18em;">Visual Storytellers in Manado</span>
+        <h1 class="hero-title">
+          <span class="title-main">Every moment<br>is worth keeping.</span>
+          <em>Eternalizing your memories<br>trough visual aesthetics.</em>
+        </h1>
         <p class="hero-sub">Silent Memory Visuals. ~ make everlasting memories</p>
         <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
           <a href="gallery.html" class="btn btn-primary" id="hero-cta-gallery">Lihat Portofolio</a>
           <a href="contact.html" class="btn btn-outline"
-            style="color: var(--text-light); border-color: rgba(250,250,247,0.3);" id="hero-cta-contact">Reservasi
-            Sesi</a>
+            style="color: var(--text-light); border-color: rgba(250,250,247,0.3);" id="hero-cta-contact">Reservasi Sesi</a>
         </div>
       </div>
 
