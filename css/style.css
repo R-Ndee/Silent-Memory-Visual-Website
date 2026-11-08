@@ -137,6 +137,19 @@ h1, h2, h3, h4, .font-serif {
   line-height: 1.7;
 }
 
+.contact-page-cta {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.contact-page-cta a {
+  color: var(--accent-gold);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .body-muted {
   color: var(--text-secondary);
 }

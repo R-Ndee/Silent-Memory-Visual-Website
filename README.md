@@ -58,3 +58,4 @@ Bayangkan tim baru saja menyelesaikan sesi dokumentasi pernikahan untuk klien Sd
 - Ubah kualitas WebP (default 82): `python3 tools/process_images.py --quality 85`
 - Paksa regenerasi semua foto: `python3 tools/process_images.py --force`
 - Mode simulasi tanpa mengubah file: `python3 tools/process_images.py --dry-run`
+- Hapus entry manifest tanpa foto sumber: `python3 tools/process_images.py --prune-missing`

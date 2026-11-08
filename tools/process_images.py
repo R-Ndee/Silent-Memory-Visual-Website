@@ -106,6 +106,7 @@ def main():
     parser.add_argument('--quality', type=int, default=82, help="WebP quality (default: 82)")
     parser.add_argument('--force', action='store_true', help="Force re-processing of all images")
     parser.add_argument('--dry-run', action='store_true', help="Preview actions without modifying files")
+    parser.add_argument('--prune-missing', action='store_true', help="Remove manifest entries without a matching source image")
     args = parser.parse_args()
 
     root_dir = Path(__file__).resolve().parent.parent
@@ -232,10 +233,16 @@ def main():
             warnings.append(f"Gagal memproses gambar '{rel_path}': {e}")
 
     # Check for missing source files in manifest
+    missing_ids = []
     for item_id, item in manifest_map.items():
         if item_id not in scanned_ids:
-            # Check if this item belongs to category scanned from original/
-            warnings.append(f"Manifest entry ID '{item_id}' ({item.get('src')}) tidak memiliki file sumber di original/.")
+            missing_ids.append(item_id)
+            if not args.prune_missing:
+                warnings.append(f"Manifest entry ID '{item_id}' ({item.get('src')}) tidak memiliki file sumber di original/.")
+
+    if args.prune_missing:
+        for item_id in missing_ids:
+            manifest_map.pop(item_id, None)
 
     # Save manifest if not dry-run
     if not args.dry_run:
@@ -260,6 +267,8 @@ def main():
     print(f"Foto di-skip (sudah ada)        : {skipped_count}")
     print(f"Manifest entry baru             : {new_manifest_count}")
     print(f"Manifest entry diupdate         : {updated_manifest_count}")
+    if args.prune_missing:
+        print(f"Manifest entry dihapus          : {len(missing_ids)}")
     print(f"Total manifest entries          : {len(manifest_map)}")
 
     if warnings:

@@ -260,7 +260,7 @@
     "media_type": "photo",
     "orientation": "portrait",
     "year": 2026,
-    "featured": false,
+    "featured": true,
     "title": "Commercial Studio Portrait"
   },
   {
@@ -291,7 +291,7 @@
     "category": "commercial",
     "subcategory": null,
     "media_type": "photo",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "year": 2026,
     "featured": true,
     "title": "Commercial Editorial Shoot"
@@ -407,17 +407,6 @@
     "title": "Fellowship Gathering Portrait"
   },
   {
-    "id": "romantic-package-couple-couple3",
-    "src": "romantic-package/couple/romantic-package-couple-couple3",
-    "category": "romantic-package",
-    "subcategory": "couple",
-    "media_type": "photo",
-    "orientation": "portrait",
-    "year": 2026,
-    "featured": false,
-    "title": "Sunset Couple Warm Embrace"
-  },
-  {
     "id": "private-photoshoot-model-model4",
     "src": "private-photoshoot/model/private-photoshoot-model-model4",
     "category": "private-photoshoot",
@@ -460,28 +449,6 @@
     "year": 2026,
     "featured": true,
     "title": "Pageant Stage Evening Gown Portrait"
-  },
-  {
-    "id": "event-documentation-birthday-birthday3",
-    "src": "event-documentation/birthday/event-documentation-birthday-birthday3",
-    "category": "event-documentation",
-    "subcategory": "birthday",
-    "media_type": "photo",
-    "orientation": "portrait",
-    "year": 2026,
-    "featured": false,
-    "title": "Birthday Cake Candle Moment"
-  },
-  {
-    "id": "event-documentation-birthday-birthday4",
-    "src": "event-documentation/birthday/event-documentation-birthday-birthday4",
-    "category": "event-documentation",
-    "subcategory": "birthday",
-    "media_type": "photo",
-    "orientation": "landscape",
-    "year": 2026,
-    "featured": false,
-    "title": "Warm Birthday Family Toast"
   },
   {
     "id": "event-documentation-birthday-birthday5",
@@ -651,16 +618,6 @@
     "subcategory": "engagement",
     "media_type": "photo",
     "orientation": "landscape",
-    "year": 2026,
-    "featured": false
-  },
-  {
-    "id": "romantic-package-engagement-engagement6",
-    "src": "romantic-package/engagement/romantic-package-engagement-engagement6",
-    "category": "romantic-package",
-    "subcategory": "engagement",
-    "media_type": "photo",
-    "orientation": "portrait",
     "year": 2026,
     "featured": false
   },
@@ -893,5 +850,245 @@
     "orientation": "landscape",
     "year": 2026,
     "featured": true
+  },
+  {
+    "id": "commercial-commercial7",
+    "src": "commercial/commercial-commercial7",
+    "category": "commercial",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "commercial-commercial8",
+    "src": "commercial/commercial-commercial8",
+    "category": "commercial",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "event-documentation-pageant-eventpeagent7",
+    "src": "event-documentation/pageant/event-documentation-pageant-eventpeagent7",
+    "category": "event-documentation",
+    "subcategory": "pageant",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation19",
+    "src": "graduation/graduation-graduation19",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation20",
+    "src": "graduation/graduation-graduation20",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation21",
+    "src": "graduation/graduation-graduation21",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation22",
+    "src": "graduation/graduation-graduation22",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "graduation-graduation23",
+    "src": "graduation/graduation-graduation23",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation24",
+    "src": "graduation/graduation-graduation24",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "graduation-graduation25",
+    "src": "graduation/graduation-graduation25",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation26",
+    "src": "graduation/graduation-graduation26",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation27",
+    "src": "graduation/graduation-graduation27",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "graduation-graduation28",
+    "src": "graduation/graduation-graduation28",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation29",
+    "src": "graduation/graduation-graduation29",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation30",
+    "src": "graduation/graduation-graduation30",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation31",
+    "src": "graduation/graduation-graduation31",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation32",
+    "src": "graduation/graduation-graduation32",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "id": "graduation-graduation33",
+    "src": "graduation/graduation-graduation33",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "graduation-graduation34",
+    "src": "graduation/graduation-graduation34",
+    "category": "graduation",
+    "subcategory": null,
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model18",
+    "src": "private-photoshoot/model/private-photoshoot-model-model18",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-model-model19",
+    "src": "private-photoshoot/model/private-photoshoot-model-model19",
+    "category": "private-photoshoot",
+    "subcategory": "model",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-others-privatebirthday1",
+    "src": "private-photoshoot/others/private-photoshoot-others-privatebirthday1",
+    "category": "private-photoshoot",
+    "subcategory": "others",
+    "media_type": "photo",
+    "orientation": "portrait",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "private-photoshoot-others-privatebirthday2",
+    "src": "private-photoshoot/others/private-photoshoot-others-privatebirthday2",
+    "category": "private-photoshoot",
+    "subcategory": "others",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "id": "romantic-package-engagement-engagement15",
+    "src": "romantic-package/engagement/romantic-package-engagement-engagement15",
+    "category": "romantic-package",
+    "subcategory": "engagement",
+    "media_type": "photo",
+    "orientation": "landscape",
+    "year": 2026,
+    "featured": false
   }
 ]

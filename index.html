@@ -236,82 +236,129 @@
     }
 
     /* What We Do Section */
+    .what-we-do-section {
+      background-color: #F5F3EF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .services-intro {
+      padding: 4rem 0 3.5rem;
+      color: var(--text-light);
+      background-color: #26221F;
+      background-image: linear-gradient(90deg, rgba(17, 15, 14, 0.76), rgba(17, 15, 14, 0.38)), url('assets/images/private-photoshoot/model/private-photoshoot-model-model18-1600.webp');
+      background-size: cover;
+      background-position: center 35%;
+    }
+
+    .services-intro .heading-lg {
+      color: var(--text-light);
+    }
+
+    .services-intro .body-muted {
+      color: rgba(250, 250, 247, 0.82);
+    }
+
     .services-list {
       display: flex;
       flex-direction: column;
       gap: 0;
-      margin-top: 4rem;
+      margin-top: 0;
       border-top: 1px solid var(--border-color);
     }
 
     .service-row {
       display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      padding: 2.5rem 0;
+      position: relative;
+      min-height: 130px;
+      padding: 1.75rem 0;
       border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
       transition: background-color var(--transition-fast);
     }
 
-    .service-row:hover {
-      background-color: rgba(139, 111, 71, 0.03);
+    .service-row::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(15, 13, 12, 0.76), rgba(15, 13, 12, 0.28) 60%, rgba(15, 13, 12, 0.08));
     }
 
     .service-title-wrap {
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
+      margin-left: clamp(1.25rem, 5vw, 5rem);
     }
 
     .service-title {
+      position: relative;
+      z-index: 2;
       font-family: var(--font-heading);
       font-size: clamp(1.5rem, 3vw, 2.5rem);
-      color: var(--text-primary);
+      color: var(--text-light);
       transition: color var(--transition-fast);
     }
 
     .service-title-wrap:hover .service-title {
-      color: var(--accent-gold);
+      color: #E8D3B9;
     }
 
     .service-subcats {
+      position: relative;
+      z-index: 2;
       font-size: 0.85rem;
-      color: var(--text-secondary);
+      color: rgba(250, 250, 247, 0.8);
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
     .service-preview-img {
-      width: 140px;
-      height: 90px;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      background-color: #E6DFD5;
-      margin: 0 auto;
-      border-radius: 4px;
+      object-position: center 40%;
       display: block;
       transition: transform var(--transition-medium);
     }
 
     .service-row:hover .service-preview-img {
-      transform: scale(1.04);
+      transform: scale(1.025);
+    }
+
+    .service-row-commercial .service-preview-img {
+      object-position: center 72%;
+    }
+
+    .service-row-romantic .service-preview-img {
+      object-position: center 55%;
     }
 
     .service-actions {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 0.75rem;
+      margin-right: clamp(1.25rem, 5vw, 5rem);
     }
 
     .btn-galeri {
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      letter-spacing: 0.035em;
       text-transform: uppercase;
       color: var(--text-primary);
-      padding: 0.45rem 1rem;
+      padding: 0.55rem 1.05rem;
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      font-weight: 500;
+      font-weight: 600;
       background-color: var(--bg-primary);
       transition: all var(--transition-fast);
     }
@@ -323,15 +370,22 @@
     }
 
     .btn-harga {
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      letter-spacing: 0.035em;
       text-transform: uppercase;
-      color: var(--accent-gold);
-      padding: 0.45rem 1rem;
+      color: #5F4629;
+      padding: 0.55rem 1.05rem;
       border: 1px solid var(--accent-gold);
       border-radius: 20px;
-      font-weight: 500;
+      font-weight: 600;
       transition: all var(--transition-fast);
+    }
+
+    .service-actions .btn-galeri,
+    .service-actions .btn-harga {
+      background-color: rgba(250, 250, 247, 0.62);
+      border-color: rgba(250, 250, 247, 0.72);
+      backdrop-filter: blur(8px);
     }
 
     .btn-harga:hover {
@@ -393,11 +447,7 @@
       }
 
       .service-preview-img {
-        display: block;
-        width: 120px;
-        height: 80px;
-        grid-column: 2;
-        margin: 0;
+        grid-column: 1 / -1;
       }
 
       .service-actions {
@@ -405,6 +455,7 @@
         justify-content: flex-start;
         gap: 1.25rem;
         margin-top: 0.25rem;
+        margin-left: clamp(1.25rem, 5vw, 5rem);
       }
 
       .about-preview-grid {
@@ -431,19 +482,28 @@
         padding: 1.25rem 1rem;
       }
 
+      .services-intro {
+        padding: 3rem 0 2.5rem;
+      }
+
       .service-row {
         grid-template-columns: 1fr auto;
         gap: 1rem;
         padding: 1.5rem 0;
       }
 
+      .service-title-wrap {
+        margin-left: 1.25rem;
+      }
+
       .service-preview-img {
-        width: 95px;
-        height: 65px;
+        object-position: 55% center;
       }
 
       .service-actions {
         gap: 1rem;
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
       }
     }
   </style>
@@ -568,8 +628,8 @@
 
         <!-- Work 4: model16 -->
         <a href="gallery.html?category=private-photoshoot" class="work-item work-item-4">
-          <img src="assets/images/private-photoshoot/model/private-photoshoot-model-model16-900.webp"
-            srcset="assets/images/private-photoshoot/model/private-photoshoot-model-model16-900.webp 900w, assets/images/private-photoshoot/model/private-photoshoot-model-model16-1600.webp 1600w"
+          <img src="assets/images/private-photoshoot/model/private-photoshoot-model-model9-900.webp"
+            srcset="assets/images/private-photoshoot/model/private-photoshoot-model-model9-900.webp 900w, assets/images/private-photoshoot/model/private-photoshoot-model-model9-1600.webp 1600w"
             alt="Editorial Model Session" style="width: 100%; height: 100%; object-fit: cover; display: block;">
           <div class="work-info">
             <div class="work-cat">PRIVATE PHOTOSHOOT · 2026</div>
@@ -580,15 +640,17 @@
     </section>
 
     <!-- WHAT WE DO SECTION (5 Services with DUAL-CTA) -->
-    <section class="section-padding"
-      style="background-color: #F5F3EF; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-      <div class="container fade-in-section">
-        <span class="sub-title">Services & Specialties</span>
-        <h2 class="heading-lg" style="margin-top: 0.5rem;">What We Do</h2>
-        <p class="body-muted" style="max-width: 600px; margin-top: 0.75rem;">Setiap lini layanan dikerjakan dengan
-          pendekatan visual editorial yang disesuaikan dengan esensi karaktermu.</p>
+    <section class="what-we-do-section">
+      <div class="services-intro">
+        <div class="container fade-in-section">
+          <span class="sub-title">Services & Specialties</span>
+          <h2 class="heading-lg" style="margin-top: 0.5rem;">What We Do</h2>
+          <p class="body-muted" style="max-width: 600px; margin-top: 0.75rem;">Setiap lini layanan dikerjakan dengan
+            pendekatan visual editorial yang disesuaikan dengan esensi karaktermu.</p>
+        </div>
+      </div>
 
-        <div class="services-list">
+      <div class="services-list">
 
           <!-- 1. GRADUATION -->
           <div class="service-row">
@@ -596,7 +658,7 @@
               <h3 class="service-title">1. Graduation</h3>
 
             </a>
-            <img src="assets/images/graduation/graduation-graduation2-900.webp" alt="Graduation Preview"
+            <img src="assets/images/graduation/graduation-graduation15-900.webp" alt="Graduation Preview"
               class="service-preview-img">
             <div class="service-actions">
               <a href="gallery.html?category=graduation" class="btn-galeri" id="whatwedo-grad-gal">Galeri</a>
@@ -610,7 +672,7 @@
               <h3 class="service-title">2. Private Photoshoot</h3>
               <span class="service-subcats">Birthday · Model · Pageant · Others</span>
             </a>
-            <img src="assets/images/private-photoshoot/model/private-photoshoot-model-model2-900.webp"
+            <img src="assets/images/private-photoshoot/model/private-photoshoot-model-model19-900.webp"
               alt="Private Photoshoot Preview" class="service-preview-img">
             <div class="service-actions">
               <a href="gallery.html?category=private-photoshoot" class="btn-galeri" id="whatwedo-priv-gal">Galeri</a>
@@ -620,12 +682,12 @@
           </div>
 
           <!-- 3. ROMANTIC PACKAGE -->
-          <div class="service-row">
+          <div class="service-row service-row-romantic">
             <a href="gallery.html?category=romantic-package" class="service-title-wrap" id="whatwedo-love-link">
               <h3 class="service-title">3. Romantic Package</h3>
               <span class="service-subcats">Prewedding · Engagement · Wedding</span>
             </a>
-            <img src="assets/images/romantic-package/engagement/romantic-package-engagement-engagement1-900.webp"
+            <img src="assets/images/romantic-package/engagement/romantic-package-engagement-engagement15-900.webp"
               alt="Romantic Package Preview" class="service-preview-img">
             <div class="service-actions">
               <a href="gallery.html?category=romantic-package" class="btn-galeri" id="whatwedo-love-gal">Galeri</a>
@@ -640,7 +702,7 @@
               <h3 class="service-title">4. Event Documentation</h3>
               <span class="service-subcats">Birthday · Pageant · Church Event · Others</span>
             </a>
-            <img src="assets/images/event-documentation/church-event/event-documentation-church-event-church1-900.webp"
+            <img src="assets/images/event-documentation/pageant/event-documentation-pageant-eventpeagent7-900.webp"
               alt="Event Documentation Preview" class="service-preview-img">
             <div class="service-actions">
               <a href="gallery.html?category=event-documentation" class="btn-galeri" id="whatwedo-event-gal">Galeri</a>
@@ -649,7 +711,7 @@
           </div>
 
           <!-- 5. COMMERCIAL -->
-          <div class="service-row">
+          <div class="service-row service-row-commercial">
             <a href="gallery.html?category=commercial" class="service-title-wrap" id="whatwedo-comm-link">
               <h3 class="service-title">5. Commercial</h3>
               <span class="service-subcats">Brand · Architecture · Product</span>
@@ -662,7 +724,6 @@
             </div>
           </div>
 
-        </div>
       </div>
     </section>
 
@@ -709,6 +770,8 @@
         </div>
       </div>
     </section>
+
+    <p class="contact-page-cta">Mencari sesuatu yang lain? <a href="contact.html">Kontak kami!</a></p>
 
   </main>
 

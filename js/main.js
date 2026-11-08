@@ -113,6 +113,7 @@ function initHashDeepLinking() {
   setTimeout(() => {
     const targetElement = document.getElementById(hash);
     if (targetElement) {
+      if (targetElement.classList.contains('pricelist-tab-content')) return;
       // Trigger tab click if target is inside a tab or is a tab container
       const tabButton = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
       if (tabButton) {

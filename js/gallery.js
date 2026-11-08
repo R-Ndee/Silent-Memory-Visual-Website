@@ -71,12 +71,14 @@ const CATEGORIES_DATA = {
 let manifestData = [];
 let currentCategory = 'all';
 let currentSubcategory = 'all';
+let currentMediaType = 'photo';
 let currentFilteredList = [];
 let currentLightboxIndex = 0;
 
 document.addEventListener('DOMContentLoaded', async () => {
   initCursorFollower();
   initLightbox();
+  initMediaSwitch();
 
   // Load manifest JSON with script fallback for direct file:// browsing
   try {
@@ -118,6 +120,7 @@ function initMainFilters() {
     }
 
     btn.addEventListener('click', () => {
+      if (currentMediaType !== 'photo') setMediaType('photo');
       if (currentCategory === cat) return;
 
       mainFilterBtns.forEach(b => b.classList.remove('active'));
@@ -141,6 +144,34 @@ function initMainFilters() {
   });
 
   renderSubFilters();
+}
+
+function initMediaSwitch() {
+  document.querySelectorAll('.gallery-media-btn').forEach(button => {
+    button.addEventListener('click', () => setMediaType(button.dataset.media));
+  });
+}
+
+function setMediaType(mediaType) {
+  currentMediaType = mediaType === 'video' ? 'video' : 'photo';
+  currentCategory = 'all';
+  currentSubcategory = 'all';
+  const nextUrl = new URL(window.location);
+  nextUrl.searchParams.delete('category');
+  window.history.replaceState({}, '', nextUrl);
+
+  document.querySelectorAll('.gallery-media-btn').forEach(button => {
+    const active = button.dataset.media === currentMediaType;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  document.querySelectorAll('.filter-btn-main').forEach(button => {
+    button.classList.toggle('active', button.dataset.category === 'all');
+  });
+  document.getElementById('main-filter-bar').hidden = currentMediaType === 'video';
+  document.getElementById('sub-filter-bar').hidden = currentMediaType === 'video';
+  renderSubFilters();
+  renderGallery();
 }
 
 /**
@@ -186,21 +217,26 @@ function renderGallery() {
   const gridSection = document.getElementById('gallery-grid-section');
   const masonryContainer = document.getElementById('gallery-masonry');
   const contextCtaBar = document.getElementById('gallery-context-cta');
+  const videoLink = document.getElementById('gallery-video-link');
 
   if (!masonryContainer || !gridSection) return;
 
   // Set category mood tint on grid section
-  gridSection.setAttribute('data-active-category', currentCategory);
+  gridSection.setAttribute('data-active-category', currentMediaType === 'video' ? 'video' : currentCategory);
+  if (videoLink) videoLink.hidden = currentMediaType !== 'video';
 
   // Update Dynamic Dual CTA bar
   updateDualCtaBar(contextCtaBar);
 
   // Filter Data
-  if (currentCategory === 'all') {
+  if (currentMediaType === 'video') {
+    currentFilteredList = manifestData.filter(item => item.media_type === 'video');
+  } else if (currentCategory === 'all') {
     // "ALL" = Curated list items (featured: true) interleaved
-    currentFilteredList = manifestData.filter(item => item.featured !== false);
+    currentFilteredList = manifestData.filter(item => item.media_type === 'photo' && item.featured !== false);
   } else {
     currentFilteredList = manifestData.filter(item => {
+      if (item.media_type !== 'photo') return false;
       const matchCat = item.category === currentCategory || 
                        (currentCategory === 'romantic-package' && item.category === 'love-package') || 
                        (currentCategory === 'love-package' && item.category === 'romantic-package');
@@ -216,7 +252,7 @@ function renderGallery() {
   if (currentFilteredList.length === 0) {
     masonryContainer.innerHTML = `
       <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-secondary);">
-        <p style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Belum ada foto dalam kategori ini</p>
+        <p style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">${currentMediaType === 'video' ? 'Video akan segera hadir' : 'Belum ada foto dalam kategori ini'}</p>
         <p style="font-size: 0.95rem; max-width: 550px; margin: 0 auto; line-height: 1.6;">
           Portofolio untuk kategori ini sedang kami siapkan. <a href="contact.html" style="color: var(--accent-gold); text-decoration: underline; font-weight: 500;">Hubungi kami</a> untuk melihat contoh karya terbaru.
         </p>
@@ -230,6 +266,20 @@ function renderGallery() {
     const itemEl = document.createElement('div');
     itemEl.className = 'gallery-item';
     itemEl.setAttribute('data-index', index);
+
+    if (item.media_type === 'video') {
+      itemEl.classList.add('gallery-video-item');
+      const source = item.video_src || item.src;
+      itemEl.innerHTML = `
+        <video controls preload="none"${item.poster ? ` poster="${item.poster}"` : ''} aria-label="${item.title || 'Silent Memory video'}">
+          <source src="${source}" type="video/${source.split('.').pop()}">
+        </video>
+        <div class="gallery-item-info"><span>${item.title || 'Silent Memory video'}</span></div>
+      `;
+      masonryContainer.appendChild(itemEl);
+      setTimeout(() => itemEl.classList.add('revealed'), Math.min(index * 40, 600));
+      return;
+    }
 
     // Image variant srcset pattern (900w, 1600w, 2560w WebP)
     const srcset = `assets/images/${item.src}-900.webp 900w, assets/images/${item.src}-1600.webp 1600w, assets/images/${item.src}-2560.webp 2560w`;
@@ -253,9 +303,7 @@ function renderGallery() {
     `;
 
     // Click handler to open Lightbox
-    itemEl.addEventListener('click', () => {
-      openLightbox(index);
-    });
+    itemEl.addEventListener('click', () => openLightbox(index));
 
     masonryContainer.appendChild(itemEl);
 

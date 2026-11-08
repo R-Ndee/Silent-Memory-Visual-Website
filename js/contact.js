@@ -61,6 +61,7 @@ function initContactForm() {
     // Collect form data
     const formData = new FormData(form);
     const formObj = Object.fromEntries(formData.entries());
+    formObj.portfolio_consent = form.elements.portfolio_consent.checked ? 'Bersedia' : 'Tidak bersedia';
 
     // Prepare WhatsApp link with data summary
     const waText = generateWhatsAppSummary(formObj);
@@ -89,7 +90,7 @@ function toggleDynamicFields(cat) {
 
   if (cat === 'graduation' || cat === 'private-photoshoot') {
     groupGradPriv?.classList.add('active');
-  } else if (cat === 'love-package') {
+  } else if (cat === 'love-package' || cat === 'romantic-package') {
     groupLove?.classList.add('active');
   } else if (cat === 'event-documentation' || cat === 'commercial') {
     groupEventComm?.classList.add('active');
@@ -138,7 +139,7 @@ function validateForm(form, currentCategory) {
     const dateOk = checkField(document.getElementById('field-grad-date'), document.getElementById('error-grad-date'));
     const locOk = checkField(document.getElementById('field-grad-loc'), document.getElementById('error-grad-loc'));
     valid = valid && dateOk && locOk;
-  } else if (currentCategory === 'love-package') {
+  } else if (currentCategory === 'love-package' || currentCategory === 'romantic-package') {
     const dateOk = checkField(document.getElementById('field-love-date'), document.getElementById('error-love-date'));
     const locOk = checkField(document.getElementById('field-love-loc'), document.getElementById('error-love-loc'));
     const subOk = checkField(document.getElementById('field-love-subcat'), document.getElementById('error-love-subcat'));
@@ -165,7 +166,7 @@ function generateWhatsAppSummary(data) {
   if (data.category === 'graduation' || data.category === 'private-photoshoot') {
     text += `• Tanggal: ${data.grad_date || '-'}\n`;
     text += `• Lokasi: ${data.grad_loc || '-'}\n`;
-  } else if (data.category === 'love-package') {
+  } else if (data.category === 'love-package' || data.category === 'romantic-package') {
     text += `• Sub-Kategori: ${data.love_subcat || '-'}\n`;
     text += `• Tanggal Acara: ${data.love_date || '-'}\n`;
     text += `• Lokasi Acara: ${data.love_loc || '-'}\n`;
@@ -178,6 +179,7 @@ function generateWhatsAppSummary(data) {
   if (data.notes) {
     text += `• Catatan: ${data.notes}\n`;
   }
+  text += `• Persetujuan portofolio: ${data.portfolio_consent || 'Tidak bersedia'}\n`;
 
   return text;
 }
